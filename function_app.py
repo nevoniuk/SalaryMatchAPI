@@ -1,9 +1,6 @@
 import azure.functions as func
-import logging
-import imp
-
-example_http_trigger_bp = imp.load_source('example_http_trigger', 'example_functions\example_http_trigger.py').bp
+from example_http_trigger import bp as example_http_trigger_bp
 
 app = func.FunctionApp()
 
-app.register_functions(example_http_trigger_bp) 
+app.register_functions(example_http_trigger_bp)
