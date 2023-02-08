@@ -1,0 +1,30 @@
+{
+  "bindings": [
+    {
+      "authLevel": "anonymous",
+      "type": "httpTrigger",
+      "direction": "in",
+      "name": "req",
+      "methods": [
+        "get"
+      ],
+      "route": "cities/demographics/{id}"
+    },
+    {
+      "type": "http",
+      "direction": "out",
+      "name": "res"
+    },
+    {
+      "type": "cosmosDB",
+      "direction": "in",
+      "name": "city",
+      "databaseName": "SalaryMatchDB",
+      "collectionName": "Cities",
+      "connectionStringSetting": "CosmosDbConnectionString",
+      "PartitionKey": "{id}",
+      "Id": "{id}"
+    }
+  ],
+  "scriptFile": "../dist/GetCityDemographics/index.js"
+}
