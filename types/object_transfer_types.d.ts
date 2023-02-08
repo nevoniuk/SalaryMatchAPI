@@ -23,5 +23,6 @@ export interface CityDemographics {
 
 export interface BasicCityInfo {
     id: string,
-    name: string
+    name: string,
+    state_id: string
 }

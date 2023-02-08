@@ -27,6 +27,7 @@ export const cityToCityDemographics = (city: City): CityDemographics => {
 export const cityToBasicCityInfo = (city: City): BasicCityInfo => {
     return {
         id: city.id,
-        name: city.name
+        name: city.name,
+        state_id: city.state_id
     }
 }

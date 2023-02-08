@@ -1,6 +1,7 @@
 export interface City {
     id: string,
     name: string,
+    state_id: string,
     monthly_internet_price: number,
     total_population: number,
     caucasian_population: number,
