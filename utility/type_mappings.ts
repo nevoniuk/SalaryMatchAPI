@@ -1,5 +1,5 @@
 import { City } from "../types/database_types";
-import { CityDemographics } from "../types/object_transfer_types";
+import { BasicCityInfo, CityDemographics } from "../types/object_transfer_types";
 
 export const cityToCityDemographics = (city: City): CityDemographics => {
     return {
@@ -21,5 +21,12 @@ export const cityToCityDemographics = (city: City): CityDemographics => {
         population_75_and_older: city.population_75_and_older,
         male_population: city.male_population,
         female_population: city.female_population
+    }
+}
+
+export const cityToBasicCityInfo = (city: City): BasicCityInfo => {
+    return {
+        id: city.id,
+        name: city.name
     }
 }

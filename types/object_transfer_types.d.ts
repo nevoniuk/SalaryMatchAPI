@@ -1,3 +1,5 @@
+// Cities
+
 export interface CityDemographics {
     id: string,
     total_population: number,
@@ -17,4 +19,9 @@ export interface CityDemographics {
     population_75_and_older: number,
     male_population: number,
     female_population: number
+}
+
+export interface BasicCityInfo {
+    id: string,
+    name: string
 }
