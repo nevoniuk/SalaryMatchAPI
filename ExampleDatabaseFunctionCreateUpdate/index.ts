@@ -1,6 +1,6 @@
 import { AzureFunction, Context, HttpRequest } from "@azure/functions"
 
-const exampleDatabaseFunctionCreate: AzureFunction = async (context: Context, req: HttpRequest, outputDocument: any): Promise<void> => {
+const exampleDatabaseFunctionCreateUpdate: AzureFunction = async (context: Context, req: HttpRequest, outputDocument: any): Promise<void> => {
     if (context.req && context.req.body && context.req.body.id && context.req.body.name && context.req.body.employeeId 
         && context.req.body.address) {
             context.bindings.outputDocument = JSON.stringify({
@@ -20,4 +20,4 @@ const exampleDatabaseFunctionCreate: AzureFunction = async (context: Context, re
     }
 };
 
-export default exampleDatabaseFunctionCreate;
+export default exampleDatabaseFunctionCreateUpdate;
