@@ -6,8 +6,7 @@
       "direction": "in",
       "name": "req",
       "methods": [
-        "get",
-        "post"
+        "get"
       ],
       "route": "samplecontainer/{id}"
     },
@@ -27,5 +26,5 @@
       "Id": "{id}"
     }
   ],
-  "scriptFile": "../dist/ExampleDatabaseFunction/index.js"
+  "scriptFile": "../dist/ExampleDatabaseFunctionRead/index.js"
 }
