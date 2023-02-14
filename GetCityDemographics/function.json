@@ -6,10 +6,9 @@
       "direction": "in",
       "name": "req",
       "methods": [
-        "get",
-        "post"
+        "get"
       ],
-      "route": "samplecontainer/{id}"
+      "route": "cities/demographics/{id}"
     },
     {
       "type": "http",
@@ -19,13 +18,13 @@
     {
       "type": "cosmosDB",
       "direction": "in",
-      "name": "inputDocument",
+      "name": "city",
       "databaseName": "SalaryMatchDB",
-      "collectionName": "SampleContainer",
+      "collectionName": "Cities",
       "connectionStringSetting": "CosmosDbConnectionString",
       "PartitionKey": "{id}",
       "Id": "{id}"
     }
   ],
-  "scriptFile": "../dist/ExampleDatabaseFunction/index.js"
+  "scriptFile": "../dist/GetCityDemographics/index.js"
 }

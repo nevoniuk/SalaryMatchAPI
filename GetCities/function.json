@@ -1,0 +1,28 @@
+{
+  "bindings": [
+    {
+      "authLevel": "anonymous",
+      "type": "httpTrigger",
+      "direction": "in",
+      "name": "req",
+      "methods": [
+        "get"
+      ],
+      "route": "cities"
+    },
+    {
+      "type": "http",
+      "direction": "out",
+      "name": "res"
+    },
+    {
+      "type": "cosmosDB",
+      "direction": "in",
+      "name": "cities",
+      "databaseName": "SalaryMatchDB",
+      "collectionName": "Cities",
+      "connectionStringSetting": "CosmosDbConnectionString"
+    }
+  ],
+  "scriptFile": "../dist/GetCities/index.js"
+}
