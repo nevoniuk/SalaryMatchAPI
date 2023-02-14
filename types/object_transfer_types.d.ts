@@ -26,3 +26,17 @@ export interface BasicCityInfo {
     name: string,
     state_id: string
 }
+
+// State
+export interface BasicStateInfo {
+    id: string,
+    name: string
+}
+
+export interface StateTaxInfo {
+    id: string,
+    state_tax_rate: number,
+    avg_local_tax_rate: number,
+    combined_rate: number,
+    max_local_tax_rate: number
+}

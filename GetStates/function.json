@@ -1,0 +1,28 @@
+{
+  "bindings": [
+    {
+      "authLevel": "anonymous",
+      "type": "httpTrigger",
+      "direction": "in",
+      "name": "req",
+      "methods": [
+        "get"
+      ],
+      "route": "states"
+    },
+    {
+      "type": "http",
+      "direction": "out",
+      "name": "res"
+    },
+    {
+      "type": "cosmosDB",
+      "direction": "in",
+      "name": "states",
+      "databaseName": "SalaryMatchDB",
+      "collectionName": "States",
+      "connectionStringSetting": "CosmosDbConnectionString"
+    }
+  ],
+  "scriptFile": "../dist/GetStates/index.js"
+}
