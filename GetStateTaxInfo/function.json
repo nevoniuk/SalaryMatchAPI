@@ -1,0 +1,30 @@
+{
+  "bindings": [
+    {
+      "authLevel": "anonymous",
+      "type": "httpTrigger",
+      "direction": "in",
+      "name": "req",
+      "methods": [
+        "get"
+      ],
+      "route": "states/tax/{id}"
+    },
+    {
+      "type": "http",
+      "direction": "out",
+      "name": "res"
+    },
+    {
+      "type": "cosmosDB",
+      "direction": "in",
+      "name": "state",
+      "databaseName": "SalaryMatchDB",
+      "collectionName": "States",
+      "connectionStringSetting": "CosmosDbConnectionString",
+      "PartitionKey": "{id}",
+      "Id": "{id}"
+    }
+  ],
+  "scriptFile": "../dist/GetStateTaxInfo/index.js"
+}

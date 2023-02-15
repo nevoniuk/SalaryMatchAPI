@@ -21,3 +21,19 @@ export interface City {
     male_population: number,
     female_population: number
 }
+
+export interface State {
+    id: string,
+    name: string,
+    state_tax_rate: number,
+    avg_local_tax_rate: number,
+    combined_rate: number,
+    max_local_tax_rate: number,
+    avg_internet_cost_permb: number,
+    internet_rank: number,
+    fiber_optic_service_percent: number,
+    RTT_score: number
+    median_download_speed: number,
+    download_score: number,
+    median_upload_speed: number
+}
