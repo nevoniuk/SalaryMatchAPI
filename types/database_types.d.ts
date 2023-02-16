@@ -37,3 +37,18 @@ export interface State {
     download_score: number,
     median_upload_speed: number
 }
+
+export interface User{
+    id: string,
+    email: string,
+    degree: string,
+    gender: string,
+    race: string,
+    temperature_preference: string,
+    humidity_preference: string,
+    sunlight_preference: string,
+    demographic_preference: string,
+    salary_preference: string,
+    pto_preference: string,
+    spender_type: string
+}

@@ -40,3 +40,8 @@ export interface StateTaxInfo {
     combined_rate: number,
     max_local_tax_rate: number
 }
+
+export interface BasicUserInfo{
+    id: string,
+    email: string
+}
