@@ -1,3 +1,4 @@
+import { SqlQuerySpec } from "@azure/cosmos";
 import { AzureFunction, Context, HttpRequest } from "@azure/functions"
 import { statesContainer } from "../cosmosClient";
 import { State } from "../types/database_types";
@@ -8,7 +9,7 @@ import { stateToBasicStateInfo } from "../utility/type_mappings";
     contain the entered search string.
 */
 const searchStates: AzureFunction = async (context: Context, req: HttpRequest): Promise<void> => {
-    const stateQuery = {
+    const stateQuery: SqlQuerySpec = {
         query: "SELECT * FROM c WHERE LOWER(c.name) LIKE LOWER(@regexName)",
         parameters: [
           {
