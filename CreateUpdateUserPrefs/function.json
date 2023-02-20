@@ -8,7 +8,7 @@
         "methods": [
             "post"
         ],
-        "route": "Users"
+        "route": "users"
         },
         {
         "type": "http",
@@ -25,5 +25,5 @@
         "createIfNotExists": true
         }
     ],
-    "scriptFile": "../dist/UpdateUserPrefs/index.js"
+    "scriptFile": "../dist/CreateUpdateUserPrefs/index.js"
 }
