@@ -2,7 +2,7 @@ import { AzureFunction, Context, HttpRequest } from "@azure/functions"
 import { User } from "../types/database_types";
 
 
-const updateUserPrefs: AzureFunction = async (context: Context, req: HttpRequest, outputDocument: any): Promise<void> => {
+const createUpdateUserPrefs: AzureFunction = async (context: Context, req: HttpRequest, outputDocument: any): Promise<void> => {
     if (context.req && context.req.body && context.req.body.id && context.req.body.email && context.req.body.degree 
         && context.req.body.gender && context.req.body.race && context.req.body.temperature_preference 
         && context.req.body.humidity_preference && context.req.body.sunlight_preference && context.req.body.demographic_preference
@@ -32,4 +32,4 @@ const updateUserPrefs: AzureFunction = async (context: Context, req: HttpRequest
     }
 };
 
-export default updateUserPrefs;
+export default createUpdateUserPrefs;

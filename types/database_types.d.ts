@@ -52,3 +52,15 @@ export interface User{
     pto_preference: string,
     spender_type: string
 }
+
+export interface JobOffer{
+    id: string,
+    RSU: number,
+    signing_bonus: number,
+    relocation_bonus: number,
+    salary: number,
+    title: string,
+    company: string,
+    city: string,
+    state: string
+}
