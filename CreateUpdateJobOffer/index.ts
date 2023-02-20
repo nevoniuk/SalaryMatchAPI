@@ -2,7 +2,7 @@ import { AzureFunction, Context, HttpRequest } from "@azure/functions"
 import { JobOffer } from "../types/database_types";
 
 
-const createUppdateJobOffer: AzureFunction = async (context: Context, req: HttpRequest, outputDocument: any): Promise<void> => {
+const createUpdateJobOffer: AzureFunction = async (context: Context, req: HttpRequest, outputDocument: any): Promise<void> => {
     if (context.req && context.req.body && context.req.body.id && context.req.body.RSU && context.req.body.signing_bonus 
         && context.req.body.relocation_bonus && context.req.body.title && context.req.body.salary 
         && context.req.body.company && context.req.body.city && context.req.body.state) {
@@ -28,4 +28,4 @@ const createUppdateJobOffer: AzureFunction = async (context: Context, req: HttpR
     }
 };
 
-export default createUppdateJobOffer;
+export default createUpdateJobOffer;
