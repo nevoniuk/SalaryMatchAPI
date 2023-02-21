@@ -8,7 +8,7 @@
       "methods": [
         "get"
       ],
-      "route": "cities/demographics/{id}"
+      "route": "cities/{id}"
     },
     {
       "type": "http",
@@ -26,5 +26,5 @@
       "Id": "{id}"
     }
   ],
-  "scriptFile": "../dist/GetCityDemographics/index.js"
+  "scriptFile": "../dist/GetCityDetails/index.js"
 }

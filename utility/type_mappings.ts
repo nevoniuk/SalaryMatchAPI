@@ -1,9 +1,10 @@
 import { City, State, User } from "../types/database_types";
-import { BasicCityInfo, BasicStateInfo, BasicUserInfo, CityDemographics, StateTaxInfo } from "../types/object_transfer_types";
+import { BasicCityInfo, BasicStateInfo, BasicUserInfo, CityDetails, StateDetails } from "../types/object_transfer_types";
 
-export const cityToCityDemographics = (city: City): CityDemographics => {
+export const cityToCityDetails = (city: City): CityDetails => {
     return {
         id: city.id,
+        average_rent: city.average_rent,
         total_population: city.total_population,
         caucasian_population: city.caucasian_population,
         black_population: city.black_population,
@@ -39,13 +40,20 @@ export const stateToBasicStateInfo = (state: State): BasicStateInfo => {
     }
 }
 
-export const stateToStateTaxInfo = (state: State): StateTaxInfo => {
+export const stateToStateDetails = (state: State): StateDetails => {
     return {
         id: state.id,
         state_tax_rate: state.state_tax_rate,
         avg_local_tax_rate: state.avg_local_tax_rate,
         combined_rate: state.combined_rate,
-        max_local_tax_rate: state.max_local_tax_rate
+        max_local_tax_rate: state.max_local_tax_rate,
+        avg_internet_cost_permb: state.avg_internet_cost_permb,
+        internet_rank: state.internet_rank,
+        fiber_optic_service_percent: state.fiber_optic_service_percent,
+        RTT_score: state.RTT_score,
+        median_download_speed: state.median_download_speed,
+        download_score: state.download_score,
+        median_upload_speed: state.median_upload_speed
     }
 }
 
