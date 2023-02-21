@@ -51,7 +51,6 @@ export const stateToStateTaxInfo = (state: State): StateTaxInfo => {
 
 export const userToBasicUserInfo = (user: User): BasicUserInfo => {
     return{
-        id: user.id,
-        email: user.email
+        id: user.id
     }
 }

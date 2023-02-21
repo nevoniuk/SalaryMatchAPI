@@ -25,5 +25,5 @@
         "createIfNotExists": true
         }
     ],
-    "scriptFile": "../dist/CreateUpdateUserPrefs/index.js"
+    "scriptFile": "../dist/CreateUpdateUser/index.js"
 }

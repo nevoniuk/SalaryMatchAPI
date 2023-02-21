@@ -40,7 +40,7 @@ export interface State {
 
 export interface User{
     id: string,
-    email: string,
+    password: string,
     degree: string,
     gender: string,
     race: string,

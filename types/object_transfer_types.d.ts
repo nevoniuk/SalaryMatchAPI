@@ -43,5 +43,4 @@ export interface StateTaxInfo {
 
 export interface BasicUserInfo{
     id: string,
-    email: string
 }
