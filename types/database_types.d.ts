@@ -38,7 +38,7 @@ export interface State {
     median_upload_speed: number
 }
 
-export interface User{
+export interface User {
     id: string,
     email: string,
     degree: string,
@@ -53,7 +53,7 @@ export interface User{
     spender_type: string
 }
 
-export interface JobOffer{
+export interface JobOffer {
     id: string,
     RSU: number,
     signing_bonus: number,

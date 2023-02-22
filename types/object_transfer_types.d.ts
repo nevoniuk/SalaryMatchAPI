@@ -2,6 +2,7 @@
 
 export interface CityDetails {
     id: string,
+    name: string,
     average_rent: number,
     total_population: number,
     caucasian_population: number,

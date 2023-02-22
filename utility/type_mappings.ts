@@ -4,6 +4,7 @@ import { BasicCityInfo, BasicStateInfo, BasicUserInfo, CityDetails, StateDetails
 export const cityToCityDetails = (city: City): CityDetails => {
     return {
         id: city.id,
+        name: city.name,
         average_rent: city.average_rent,
         total_population: city.total_population,
         caucasian_population: city.caucasian_population,
