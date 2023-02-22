@@ -1,7 +1,9 @@
 // Cities
 
-export interface CityDemographics {
+export interface CityDetails {
     id: string,
+    name: string,
+    average_rent: number,
     total_population: number,
     caucasian_population: number,
     black_population: number,
@@ -33,15 +35,22 @@ export interface BasicStateInfo {
     name: string
 }
 
-export interface StateTaxInfo {
+export interface StateDetails {
     id: string,
     state_tax_rate: number,
     avg_local_tax_rate: number,
     combined_rate: number,
-    max_local_tax_rate: number
+    max_local_tax_rate: number,
+    avg_internet_cost_permb: number,
+    internet_rank: number,
+    fiber_optic_service_percent: number,
+    RTT_score: number
+    median_download_speed: number,
+    download_score: number,
+    median_upload_speed: number
 }
 
-export interface BasicUserInfo{
+export interface BasicUserInfo {
     id: string,
     email: string
 }
