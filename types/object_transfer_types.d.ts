@@ -54,6 +54,20 @@ export interface BasicUserInfo {
     id: string
 }
 
+export interface UserInfo {
+    id: string,
+    degree: string,
+    gender: string,
+    race: string,
+    temperature_preference: string,
+    humidity_preference: string,
+    sunlight_preference: string,
+    demographic_preference: string,
+    salary_preference: string,
+    pto_preference: string,
+    spender_type: string
+}
+
 // Companies
 export interface BasicCompanyInfo {
     id: string,

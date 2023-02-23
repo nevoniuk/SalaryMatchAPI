@@ -1,13 +1,12 @@
 import { AzureFunction, Context, HttpRequest } from "@azure/functions"
-import { database } from "../cosmosClient";
-import { User } from "../types/database_types";
+import { usersContainer } from "../cosmosClient";
 import { v4 as uuidv4 } from "uuid";
 
 const login: AzureFunction = async (context: Context, req: HttpRequest, outputDocument: any): Promise<void> => {
     if (context.req && context.req.body && context.req.body.id && context.req.body.password) {
 
         var accountExists = false;
-        const item = await database.container("Users").item(context.req.body.id, context.req.body.id).read();
+        const item = await usersContainer.item(context.req.body.id, context.req.body.id).read();
 
         if (item.statusCode == 200) {
             accountExists = true;
