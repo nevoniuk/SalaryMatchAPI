@@ -1,0 +1,28 @@
+{
+  "bindings": [
+    {
+      "authLevel": "anonymous",
+      "type": "httpTrigger",
+      "direction": "in",
+      "name": "req",
+      "methods": [
+        "get"
+      ],
+      "route": "companies"
+    },
+    {
+      "type": "http",
+      "direction": "out",
+      "name": "res"
+    },
+    {
+      "type": "cosmosDB",
+      "direction": "in",
+      "name": "companies",
+      "databaseName": "SalaryMatchDB",
+      "collectionName": "Companies",
+      "connectionStringSetting": "CosmosDbConnectionString"
+    }
+  ],
+  "scriptFile": "../dist/GetCompanies/index.js"
+}

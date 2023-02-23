@@ -1,8 +1,12 @@
 import { loginAttemptsContainer } from "../cosmosClient";
 
-const validateToken = async (token:string): Promise<string> => {
+export const validateToken = async (token:string): Promise<string> => {
     var validToken = false;
-    const item  = await loginAttemptsContainer.item(token, token).read();
+
+    // Removes the string "Bearer " from the token
+    const strippedToken = token.slice(7);
+
+    const item  = await loginAttemptsContainer.item(strippedToken, strippedToken).read();
 
     if(item.statusCode == 200){
         validToken = true;
