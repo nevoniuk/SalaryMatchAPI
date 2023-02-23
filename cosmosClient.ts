@@ -5,8 +5,7 @@ const { CosmosClient } = cosmos;
 
 const client = new CosmosClient(process.env["CosmosDbConnectionString"]);
 // All function invocations also reference the same database and container.
-const database: Database = client.database("SalaryMatchDB");
+export const database: Database = client.database("SalaryMatchDB");
 
-const sampleContainer: Container = database.container("SampleContainer");
-
-export {database, sampleContainer}
+export const sampleContainer: Container = database.container("SampleContainer");
+export const statesContainer: Container = database.container("States");
