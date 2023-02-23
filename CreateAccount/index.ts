@@ -1,7 +1,7 @@
 import { AzureFunction, Context, HttpRequest } from "@azure/functions"
 import { database } from "../cosmosClient";
 
-const createAccount: AzureFunction = async (context: Context, req: HttpRequest, outputDocument: any): Promise<void> => {
+const createUser: AzureFunction = async (context: Context, req: HttpRequest, outputDocument: any): Promise<void> => {
     if (context.req && context.req.body && context.req.body.id && context.req.body.password && context.req.body.degree
         && context.req.body.gender && context.req.body.race && context.req.body.temperature_preference 
         && context.req.body.humidity_preference && context.req.body.sunlight_preference && context.req.body.demographic_preference
@@ -46,4 +46,4 @@ const createAccount: AzureFunction = async (context: Context, req: HttpRequest, 
     }
 };
 
-export default createAccount;
+export default createUser;
