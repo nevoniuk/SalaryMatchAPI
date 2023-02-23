@@ -1,8 +1,8 @@
-import { database } from "../cosmosClient";
+import { loginAttemptsContainer } from "../cosmosClient";
 
 const validateToken = async (token:string): Promise<string> => {
     var validToken = false;
-    const item  = await database.container("LoginAttempts").item(token, token).read();
+    const item  = await loginAttemptsContainer.item(token, token).read();
 
     if(item.statusCode == 200){
         validToken = true;
