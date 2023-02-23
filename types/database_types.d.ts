@@ -64,3 +64,17 @@ export interface JobOffer {
     city: string,
     state: string
 }
+
+export interface Company {
+    id: string,
+    name: string
+}
+
+export interface CompanyReview {
+    id: string,
+    user_id: string,
+    is_anonymous: boolean,
+    company_id: string,
+    overall_rating: number,
+    comment: string
+}

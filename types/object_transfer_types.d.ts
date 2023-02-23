@@ -1,5 +1,4 @@
 // Cities
-
 export interface CityDetails {
     id: string,
     name: string,
@@ -29,7 +28,7 @@ export interface BasicCityInfo {
     state_id: string
 }
 
-// State
+// States
 export interface BasicStateInfo {
     id: string,
     name: string
@@ -50,6 +49,34 @@ export interface StateDetails {
     median_upload_speed: number
 }
 
+// Users
 export interface BasicUserInfo {
+    id: string
+}
+
+export interface UserInfo {
     id: string,
+    degree: string,
+    gender: string,
+    race: string,
+    temperature_preference: string,
+    humidity_preference: string,
+    sunlight_preference: string,
+    demographic_preference: string,
+    salary_preference: string,
+    pto_preference: string,
+    spender_type: string
+}
+
+// Companies
+export interface BasicCompanyInfo {
+    id: string,
+    name: string
+}
+
+export interface BasicCompanyReview {
+    id: string,
+    user_id: string,
+    overall_rating: number,
+    comment: string
 }

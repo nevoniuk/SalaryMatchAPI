@@ -1,0 +1,29 @@
+{
+  "bindings": [
+    {
+      "authLevel": "anonymous",
+      "type": "httpTrigger",
+      "direction": "in",
+      "name": "req",
+      "methods": [
+        "post"
+      ],
+      "route": "companies/{company_id}/reviews"
+    },
+    {
+      "type": "http",
+      "direction": "out",
+      "name": "res"
+    },
+    {
+      "type": "cosmosDB",
+      "direction": "out",
+      "name": "companyReview",
+      "databaseName": "SalaryMatchDB",
+      "collectionName": "CompanyReviews",
+      "connectionStringSetting": "CosmosDbConnectionString",
+      "createIfNotExists": true
+    }
+  ],
+  "scriptFile": "../dist/PostCompanyReview/index.js"
+}
