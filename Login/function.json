@@ -1,0 +1,29 @@
+{
+    "bindings": [
+        {
+        "authLevel": "anonymous",
+        "type": "httpTrigger",
+        "direction": "in",
+        "name": "req",
+        "methods": [
+            "post"
+        ],
+        "route": "token"
+        },
+        {
+        "type": "http",
+        "direction": "out",
+        "name": "res"
+        },
+        {
+        "type": "cosmosDB",
+        "direction": "out",
+        "name": "outputDocument",
+        "databaseName": "SalaryMatchDB",
+        "collectionName": "LoginAttempts",
+        "connectionStringSetting": "CosmosDbConnectionString",
+        "createIfNotExists": true
+        }
+    ],
+    "scriptFile": "../dist/Login/index.js"
+}
