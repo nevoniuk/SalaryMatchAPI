@@ -12,7 +12,7 @@ const getCompanies: AzureFunction = async (context: Context, req: HttpRequest, c
     }
 
     context.res = {
-        body: companies.map((company) => companyToBasicCompanyInfo(company))
+        body: JSON.stringify(companies.map((company) => companyToBasicCompanyInfo(company)))
     }
 };
 
