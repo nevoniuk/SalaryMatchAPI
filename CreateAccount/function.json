@@ -1,0 +1,29 @@
+{
+    "bindings": [
+        {
+        "authLevel": "anonymous",
+        "type": "httpTrigger",
+        "direction": "in",
+        "name": "req",
+        "methods": [
+            "get", "post"
+        ],
+        "route": "createaccount"
+        },
+        {
+        "type": "http",
+        "direction": "out",
+        "name": "res"
+        },
+        {
+        "type": "cosmosDB",
+        "direction": "out",
+        "name": "outputDocument",
+        "databaseName": "SalaryMatchDB",
+        "collectionName": "Users",
+        "connectionStringSetting": "CosmosDbConnectionString",
+        "createIfNotExists": true
+        }
+    ],
+    "scriptFile": "../dist/CreateAccount/index.js"
+}

@@ -8,7 +8,7 @@
         "methods": [
             "post"
         ],
-        "route": "users"
+        "route": "login"
         },
         {
         "type": "http",
@@ -20,10 +20,10 @@
         "direction": "out",
         "name": "outputDocument",
         "databaseName": "SalaryMatchDB",
-        "collectionName": "Users",
+        "collectionName": "LoginAttempts",
         "connectionStringSetting": "CosmosDbConnectionString",
         "createIfNotExists": true
         }
     ],
-    "scriptFile": "../dist/CreateUpdateUserPrefs/index.js"
+    "scriptFile": "../dist/Login/index.js"
 }

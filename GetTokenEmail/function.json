@@ -1,0 +1,28 @@
+{
+    "bindings": [
+      {
+        "authLevel": "anonymous",
+        "type": "httpTrigger",
+        "direction": "in",
+        "name": "req",
+        "methods": [
+          "get"
+        ],
+        "route": "token"
+      },
+      {
+        "type": "http",
+        "direction": "out",
+        "name": "res"
+      },
+      {
+        "type": "cosmosDB",
+        "direction": "in",
+        "name": "tokenemail",
+        "databaseName": "SalaryMatchDB",
+        "collectionName": "LoginAttempts",
+        "connectionStringSetting": "CosmosDbConnectionString"
+      }
+    ],
+    "scriptFile": "../dist/GetTokenEmail/index.js"
+  }

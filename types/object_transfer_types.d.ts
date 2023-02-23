@@ -52,5 +52,4 @@ export interface StateDetails {
 
 export interface BasicUserInfo {
     id: string,
-    email: string
 }

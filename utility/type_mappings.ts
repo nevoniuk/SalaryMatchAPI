@@ -60,7 +60,6 @@ export const stateToStateDetails = (state: State): StateDetails => {
 
 export const userToBasicUserInfo = (user: User): BasicUserInfo => {
     return{
-        id: user.id,
-        email: user.email
+        id: user.id
     }
 }
