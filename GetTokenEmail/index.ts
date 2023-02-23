@@ -1,7 +1,5 @@
 import { AzureFunction, Context, HttpRequest } from "@azure/functions"
 import { database } from "../cosmosClient";
-import { User } from "../types/database_types";
-import {v4 as uuidv4} from "uuid";
 
 const getTokenEmail: AzureFunction = async (context: Context, req: HttpRequest, outputDocument: any): Promise<void> => {
     if (context.req && context.req.body && context.req.body.id) {
@@ -14,13 +12,6 @@ const getTokenEmail: AzureFunction = async (context: Context, req: HttpRequest, 
             }
 
             if(validToken){
-                const token = uuidv4();
-                console.log(token)
-                context.bindings.outputDocument = JSON.stringify({
-                    id: token,
-                    email: context.req.body.id,
-                    login_time: Date()
-                });
                 context.res = {
                     status: 200,
                     body: item.resource.email

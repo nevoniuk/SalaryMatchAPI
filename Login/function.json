@@ -8,7 +8,7 @@
         "methods": [
             "post"
         ],
-        "route": "token"
+        "route": "login"
         },
         {
         "type": "http",
