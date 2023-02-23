@@ -3,15 +3,15 @@ import { randomUUID } from "crypto";
 import { validateToken } from "../utility/validateToken";
 
 const postCompanyReview: AzureFunction = async (context: Context, req: HttpRequest): Promise<void> => {
-    if (!(req.headers['Authorization'] || req.headers['authorization'])) {
+    const user_id = await validateToken(req.headers);
+
+    if (user_id == "No Token Found") {
         context.res = {
             status: 401,
-            body: "No bearer token found."
+            body: "Token not found."
         }
         return;
     }
-
-    const user_id = await validateToken((req.headers['Authorization'] || req.headers['authorization']));
 
     if (user_id == "Invalid Session") {
         context.res = {
