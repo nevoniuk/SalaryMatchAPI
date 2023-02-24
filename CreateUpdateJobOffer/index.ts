@@ -24,9 +24,9 @@ const createUpdateJobOffer: AzureFunction = async (context: Context, req: HttpRe
 
     if (context.req && context.req.body && context.req.body.RSU && context.req.body.signing_bonus 
         && context.req.body.relocation_bonus && context.req.body.title && context.req.body.salary 
-        && context.req.body.company && context.req.body.city && context.req.body.state) {
+        && context.req.body.company && context.req.body.city_id && context.req.body.state_id) {
             context.bindings.outputDocument = JSON.stringify({
-                id: uuidv4(),
+                id: context.req.body.id ? context.req.body.id : uuidv4(),
                 user_id: user_id,
                 RSU: context.req.body.RSU,
                 signing_bonus: context.req.body.signing_bonus,
@@ -34,8 +34,8 @@ const createUpdateJobOffer: AzureFunction = async (context: Context, req: HttpRe
                 title: context.req.body.title,
                 salary: context.req.body.salary,
                 company: context.req.body.company,
-                city: context.req.body.city,
-                state: context.req.body.state
+                city_id: context.req.body.city,
+                state_id: context.req.body.state
             });
             context.res = {
                 body: "Record added to Cosmos DB"

@@ -6,9 +6,9 @@
       "direction": "in",
       "name": "req",
       "methods": [
-        "post"
+        "delete"
       ],
-      "route": "deletejoboffer"
+      "route": "joboffers"
     },
     {
       "type": "http",

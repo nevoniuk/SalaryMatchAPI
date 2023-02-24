@@ -1,5 +1,5 @@
-import { City, Company, CompanyReview, State, User } from "../types/database_types";
-import { BasicCityInfo, BasicCompanyInfo, BasicCompanyReview, BasicStateInfo, BasicUserInfo, CityDetails, CompanyDetails, StateDetails, UserInfo } from "../types/object_transfer_types";
+import { City, Company, CompanyReview, JobOffer, State, User } from "../types/database_types";
+import { BasicCityInfo, BasicCompanyInfo, BasicCompanyReview, BasicStateInfo, BasicUserInfo, CityDetails, CompanyDetails, JobOfferDetails, StateDetails, UserInfo } from "../types/object_transfer_types";
 
 export const cityToCityDetails = (city: City): CityDetails => {
     return {
@@ -100,5 +100,20 @@ export const companyReviewToBasicCompanyReviewInfo = (companyReview: CompanyRevi
         user_id: companyReview.is_anonymous ? null : companyReview.user_id,
         overall_rating: companyReview.overall_rating,
         comment: companyReview.comment
+    }
+}
+
+export const jobOfferToJobOfferDetails = (jobOffer: JobOffer): JobOfferDetails => {
+    return {
+        id: jobOffer.id,
+        user_id: jobOffer.user_id,
+        RSU: jobOffer.RSU,
+        signing_bonus: jobOffer.signing_bonus,
+        relocation_bonus: jobOffer.relocation_bonus,
+        salary: jobOffer.salary,
+        title: jobOffer.title,
+        company: jobOffer.company,
+        city_id: jobOffer.city_id,
+        state_id: jobOffer.state_id
     }
 }

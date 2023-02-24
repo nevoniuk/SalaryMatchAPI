@@ -85,3 +85,17 @@ export interface BasicCompanyReview {
     overall_rating: number,
     comment: string
 }
+
+// Job Offers
+export interface JobOfferDetails {
+    id: string,
+    user_id: string,
+    RSU: number,
+    signing_bonus: number,
+    relocation_bonus: number,
+    salary: number,
+    title: string,
+    company: string,
+    city_id: string,
+    state_id: string
+}
