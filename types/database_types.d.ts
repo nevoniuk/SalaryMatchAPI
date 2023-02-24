@@ -55,14 +55,15 @@ export interface User {
 
 export interface JobOffer {
     id: string,
+    user_id: string,
     RSU: number,
     signing_bonus: number,
     relocation_bonus: number,
     salary: number,
     title: string,
     company: string,
-    city: string,
-    state: string
+    city_id: string,
+    state_id: string
 }
 
 export interface Company {

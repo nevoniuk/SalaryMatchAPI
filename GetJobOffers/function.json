@@ -14,14 +14,6 @@
       "type": "http",
       "direction": "out",
       "name": "res"
-    },
-    {
-      "type": "cosmosDB",
-      "direction": "in",
-      "name": "joboffers",
-      "databaseName": "SalaryMatchDB",
-      "collectionName": "JobOffers",
-      "connectionStringSetting": "CosmosDbConnectionString"
     }
   ],
   "scriptFile": "../dist/GetJobOffers/index.js"

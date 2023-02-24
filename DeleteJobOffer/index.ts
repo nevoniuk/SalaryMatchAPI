@@ -1,5 +1,5 @@
 import { AzureFunction, Context, HttpRequest } from "@azure/functions"
-import { database } from "../cosmosClient";
+import { database, jobOffersContainer } from "../cosmosClient";
 import { validateToken } from "../utility/validateToken";
 
 const deleteJobOffer: AzureFunction = async (context: Context, req: HttpRequest): Promise<void> => {
@@ -21,7 +21,7 @@ const deleteJobOffer: AzureFunction = async (context: Context, req: HttpRequest)
         return;
     }
 
-    const item = await database.container("JobOffers").item(context.req.body.id, context.req.body.id);
+    const item = jobOffersContainer.item(context.req.body.id, context.req.body.id);
     const itemObj = await item.read();
     if(itemObj.resource.user_id == user_id){
         try {

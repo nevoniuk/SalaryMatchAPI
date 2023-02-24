@@ -1,17 +1,43 @@
+import { SqlQuerySpec } from "@azure/cosmos";
 import { AzureFunction, Context, HttpRequest } from "@azure/functions"
+import { jobOffersContainer } from "../cosmosClient";
 import { JobOffer } from "../types/database_types";
+import { jobOfferToJobOfferDetails } from "../utility/type_mappings";
+import { validateToken } from "../utility/validateToken";
 
-const getJobOffers: AzureFunction = async (context: Context, req: HttpRequest, joboffers: JobOffer[] | null): Promise<void> => {
-    if (!joboffers) {
+const getJobOffers: AzureFunction = async (context: Context, req: HttpRequest): Promise<void> => {
+    const user_id = await validateToken(req.headers);
+
+    if (user_id == "No Token Found") {
         context.res = {
-            status: 404,
-            body: "No job offers found"
+            status: 401,
+            body: "Token not found."
         }
         return;
     }
 
+    if (user_id == "Invalid Session") {
+        context.res = {
+            status: 401,
+            body: "Token invalid."
+        }
+        return;
+    }
+
+    const jobOffersQuery: SqlQuerySpec = {
+        query: "SELECT * FROM c WHERE c.user_id = @user_id",
+        parameters: [
+          {
+            name: "@user_id",
+            value: user_id
+          }
+        ]
+    };
+
+    const { resources: jobOffers }: { resources: JobOffer[] } = await jobOffersContainer.items.query(jobOffersQuery).fetchAll();
+
     context.res = {
-        body: joboffers
+        body: JSON.stringify(jobOffers.map((jobOffer) => jobOfferToJobOfferDetails(jobOffer)))
     }
 };
 
