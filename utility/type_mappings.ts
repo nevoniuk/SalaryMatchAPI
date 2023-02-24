@@ -44,6 +44,7 @@ export const stateToBasicStateInfo = (state: State): BasicStateInfo => {
 export const stateToStateDetails = (state: State): StateDetails => {
     return {
         id: state.id,
+        name: state.name,
         state_tax_rate: state.state_tax_rate,
         avg_local_tax_rate: state.avg_local_tax_rate,
         combined_rate: state.combined_rate,

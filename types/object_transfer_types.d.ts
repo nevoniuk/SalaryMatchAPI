@@ -37,6 +37,7 @@ export interface BasicStateInfo {
 
 export interface StateDetails {
     id: string,
+    name: string,
     state_tax_rate: number,
     avg_local_tax_rate: number,
     combined_rate: number,
