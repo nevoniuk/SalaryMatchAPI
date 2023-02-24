@@ -74,6 +74,11 @@ export interface BasicCompanyInfo {
     name: string
 }
 
+export interface CompanyDetails {
+    id: string,
+    name: string
+}
+
 export interface BasicCompanyReview {
     id: string,
     user_id: string,

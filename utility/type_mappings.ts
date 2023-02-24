@@ -1,5 +1,5 @@
 import { City, Company, CompanyReview, State, User } from "../types/database_types";
-import { BasicCityInfo, BasicCompanyInfo, BasicCompanyReview, BasicStateInfo, BasicUserInfo, CityDetails, StateDetails, UserInfo } from "../types/object_transfer_types";
+import { BasicCityInfo, BasicCompanyInfo, BasicCompanyReview, BasicStateInfo, BasicUserInfo, CityDetails, CompanyDetails, StateDetails, UserInfo } from "../types/object_transfer_types";
 
 export const cityToCityDetails = (city: City): CityDetails => {
     return {
@@ -81,6 +81,13 @@ export const userToUserInfo = (user: User): UserInfo => {
 }
 
 export const companyToBasicCompanyInfo = (company: Company): BasicCompanyInfo => {
+    return {
+        id: company.id,
+        name: company.name
+    }
+}
+
+export const companyToCompanyDetails = (company: Company): CompanyDetails => {
     return {
         id: company.id,
         name: company.name
