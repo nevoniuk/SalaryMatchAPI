@@ -2,6 +2,7 @@ import { SqlQuerySpec } from "@azure/cosmos";
 import { AzureFunction, Context, HttpRequest } from "@azure/functions"
 import { companyReviewsContainer } from "../cosmosClient";
 import { CompanyReview } from "../types/database_types";
+import { responseFactory } from "../utility/response_factory";
 import { companyReviewToBasicCompanyReviewInfo } from "../utility/type_mappings";
 /*
     Allows users to search for states and get basic info about them. Matches any states with names that
@@ -19,10 +20,7 @@ const getCompanyReviews: AzureFunction = async (context: Context, req: HttpReque
     };
 
     const { resources: companyReviews }: { resources: CompanyReview[] } = await companyReviewsContainer.items.query(companyReviewQuery).fetchAll();
-
-    context.res = {
-        body: companyReviews.map((companyReview) => companyReviewToBasicCompanyReviewInfo(companyReview))
-    }
+    context.res = responseFactory(companyReviews.map((companyReview) => companyReviewToBasicCompanyReviewInfo(companyReview)));
 };
 
 export default getCompanyReviews;

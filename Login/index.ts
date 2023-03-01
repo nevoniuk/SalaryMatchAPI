@@ -1,6 +1,7 @@
 import { AzureFunction, Context, HttpRequest } from "@azure/functions"
 import { usersContainer } from "../cosmosClient";
 import { v4 as uuidv4 } from "uuid";
+import { responseFactory } from "../utility/response_factory";
 
 const login: AzureFunction = async (context: Context, req: HttpRequest, outputDocument: any): Promise<void> => {
     if (context.req && context.req.body && context.req.body.id && context.req.body.password) {
@@ -27,27 +28,15 @@ const login: AzureFunction = async (context: Context, req: HttpRequest, outputDo
                     email: context.req.body.id,
                     login_time: Date()
                 });
-                context.res = {
-                    status: 200,
-                    body: token
-                }
+                context.res = responseFactory(token);
             } else {
-                context.res = {
-                    status: 400,
-                    body: "Incorrect Password"
-                }
+                context.res = responseFactory("Incorrect Password", 400);
             }
         } else {
-            context.res = {
-                status: 400,
-                body: "Account does not exist"
-            }
+            context.res = responseFactory("Account does not exist", 400);
         }
     } else {
-        context.res = {
-            status: 400,
-            body: "Please include account email and password"
-        }
+        context.res = responseFactory("Please include account email and password", 400);
     }
 };
 
