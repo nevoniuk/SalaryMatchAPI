@@ -20,7 +20,7 @@ export interface CityDetails {
     population_75_and_older: number,
     male_population: number,
     female_population: number,
-    average_groceries: number
+    average_groceries_cost: number
 }
 
 export interface BasicCityInfo {
