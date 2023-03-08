@@ -1,5 +1,6 @@
 import { AzureFunction, Context, HttpRequest } from "@azure/functions"
 import { loginAttemptsContainer } from "../cosmosClient";
+import { responseFactory } from "../utility/response_factory";
 
 const getTokenEmail: AzureFunction = async (context: Context, req: HttpRequest): Promise<void> => {
     if (context.req && context.req.body && context.req.body.id) {
@@ -12,21 +13,12 @@ const getTokenEmail: AzureFunction = async (context: Context, req: HttpRequest):
             }
 
             if(validToken){
-                context.res = {
-                    status: 200,
-                    body: item.resource.email
-                }
+                context.res = responseFactory(item.resource.email);
             } else {
-                context.res = {
-                    status: 400,
-                    body: "Invalid Session"
-                }
+                context.res = responseFactory("Invalid Session", 400);
             }
     } else {
-        context.res = {
-            status: 400,
-            body: "Please pass user token"
-        }
+        context.res = responseFactory("Please pass user token", 400);
     }
 };
 
