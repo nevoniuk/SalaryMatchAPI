@@ -23,7 +23,7 @@ export const cityToCityDetails = (city: City): CityDetails => {
         population_75_and_older: city.population_75_and_older,
         male_population: city.male_population,
         female_population: city.female_population,
-        average_groceries: city.average_groceries
+        average_groceries_cost: city.average_groceries_cost
     }
 }
 
