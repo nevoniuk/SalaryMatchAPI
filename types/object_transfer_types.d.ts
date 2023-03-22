@@ -19,7 +19,20 @@ export interface CityDetails {
     population_65_to_74: number,
     population_75_and_older: number,
     male_population: number,
-    female_population: number
+    female_population: number,
+    avg_temp_jan: number,
+    avg_temp_feb: number,
+    avg_temp_march: number,
+    avg_temp_april: number,
+    avg_temp_may: number,
+    avg_temp_june: number,
+    avg_temp_july: number,
+    avg_temp_aug: number,
+    avg_temp_sept: number,
+    avg_temp_oct: number,
+    avg_temp_nov: number,
+    avg_temp_dec: number,
+    average_groceries_cost: number
 }
 
 export interface BasicCityInfo {

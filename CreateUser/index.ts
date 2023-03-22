@@ -1,11 +1,11 @@
 import { AzureFunction, Context, HttpRequest } from "@azure/functions"
 import { usersContainer } from "../cosmosClient";
+import { responseFactory } from "../utility/response_factory";
 
 const createUser: AzureFunction = async (context: Context, req: HttpRequest, outputDocument: any): Promise<void> => {
     if (context.req && context.req.body && context.req.body.id && context.req.body.password && context.req.body.temperature_preference 
         && context.req.body.humidity_preference && context.req.body.sunlight_preference && context.req.body.demographic_preference
         && context.req.body.salary_preference && context.req.body.pto_preference) {
-            
             var accountExists = false;
             const item  = await usersContainer.item(context.req.body.id, context.req.body.id).read();
 
@@ -27,20 +27,12 @@ const createUser: AzureFunction = async (context: Context, req: HttpRequest, out
                     salary_preference: context.req.body.salary_preference,
                     pto_preference: context.req.body.pto_preference,
                 });
-                context.res = {
-                    body: "User added to Cosmos DB"
-                }
+                context.res = responseFactory("User added to Cosmos DB");
             } else {
-                context.res = {
-                    status: 400,
-                    body: "Account Exists"
-                }
+                context.res = responseFactory("Account Exists", 400);
             }
     } else {
-        context.res = {
-            status: 400,
-            body: "Need to include information for a user profile"
-        }
+        context.res = responseFactory("Need to include information for a user profile", 400);
     }
 };
 
