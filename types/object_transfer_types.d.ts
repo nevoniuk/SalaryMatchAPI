@@ -31,7 +31,8 @@ export interface CityDetails {
     avg_temp_sept: number,
     avg_temp_oct: number,
     avg_temp_nov: number,
-    avg_temp_dec: number
+    avg_temp_dec: number,
+    average_groceries_cost: number
 }
 
 export interface BasicCityInfo {
