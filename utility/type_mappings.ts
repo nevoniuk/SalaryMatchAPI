@@ -23,6 +23,18 @@ export const cityToCityDetails = (city: City): CityDetails => {
         population_75_and_older: city.population_75_and_older,
         male_population: city.male_population,
         female_population: city.female_population,
+        avg_temp_jan: city.avg_temp_jan,
+        avg_temp_feb: city.avg_temp_feb,
+        avg_temp_march: city.avg_temp_march,
+        avg_temp_april: city.avg_temp_april,
+        avg_temp_may: city.avg_temp_may,
+        avg_temp_june: city.avg_temp_june,
+        avg_temp_july: city.avg_temp_july,
+        avg_temp_aug: city.avg_temp_aug,
+        avg_temp_sept: city.avg_temp_sept,
+        avg_temp_oct: city.avg_temp_oct,
+        avg_temp_nov: city.avg_temp_nov,
+        avg_temp_dec: city.avg_temp_dec,
         average_groceries_cost: city.average_groceries_cost
     }
 }

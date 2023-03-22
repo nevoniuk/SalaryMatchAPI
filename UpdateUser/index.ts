@@ -1,24 +1,19 @@
 import { AzureFunction, Context, HttpRequest } from "@azure/functions"
 import { usersContainer } from "../cosmosClient";
 import { User } from "../types/database_types";
-import { validateToken
- } from "../utility/validateToken";
+import { responseFactory } from "../utility/response_factory";
+import { validateToken } from "../utility/validateToken";
+
 const updateUser: AzureFunction = async (context: Context, req: HttpRequest): Promise<void> => {
     const user_id = await validateToken(req.headers);
 
     if (user_id == "No Token Found") {
-        context.res = {
-            status: 401,
-            body: "Token not found."
-        }
+        context.res = responseFactory("Token not found.", 401);
         return;
     }
 
     if (user_id == "Invalid Session") {
-        context.res = {
-            status: 401,
-            body: "Token invalid."
-        }
+        context.res = responseFactory("Token invalid.", 401);
         return;
     }
 
@@ -40,14 +35,9 @@ const updateUser: AzureFunction = async (context: Context, req: HttpRequest): Pr
                 pto_preference: context.req.body.pto_preference ? context.req.body.pto_preference : oldUser.pto_preference,
                 spender_type: context.req.body.spender_type ? context.req.body.spender_type : oldUser.spender_type
             });
-            context.res = {
-                body: "Record added to Cosmos DB"
-            }
+            context.res = responseFactory("Record added to Cosmos DB");
     } else {
-        context.res = {
-            status: 400,
-            body: "Need to include preferences for a user profile in response body"
-        }
+        context.res = responseFactory("Need to include preferences for a user profile in response body", 400);
     }
 };
 

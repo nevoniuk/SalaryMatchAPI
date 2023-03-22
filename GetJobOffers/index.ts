@@ -2,6 +2,7 @@ import { SqlQuerySpec } from "@azure/cosmos";
 import { AzureFunction, Context, HttpRequest } from "@azure/functions"
 import { jobOffersContainer } from "../cosmosClient";
 import { JobOffer } from "../types/database_types";
+import { responseFactory } from "../utility/response_factory";
 import { jobOfferToJobOfferDetails } from "../utility/type_mappings";
 import { validateToken } from "../utility/validateToken";
 
@@ -9,18 +10,12 @@ const getJobOffers: AzureFunction = async (context: Context, req: HttpRequest): 
     const user_id = await validateToken(req.headers);
 
     if (user_id == "No Token Found") {
-        context.res = {
-            status: 401,
-            body: "Token not found."
-        }
+        context.res = responseFactory("Token not found.", 401);
         return;
     }
 
     if (user_id == "Invalid Session") {
-        context.res = {
-            status: 401,
-            body: "Token invalid."
-        }
+        context.res = responseFactory("Token invalid.", 401);
         return;
     }
 
@@ -35,10 +30,7 @@ const getJobOffers: AzureFunction = async (context: Context, req: HttpRequest): 
     };
 
     const { resources: jobOffers }: { resources: JobOffer[] } = await jobOffersContainer.items.query(jobOffersQuery).fetchAll();
-
-    context.res = {
-        body: JSON.stringify(jobOffers.map((jobOffer) => jobOfferToJobOfferDetails(jobOffer)))
-    }
+    context.res = responseFactory(jobOffers.map((jobOffer) => jobOfferToJobOfferDetails(jobOffer)));
 };
 
 export default getJobOffers;

@@ -2,23 +2,18 @@ import { AzureFunction, Context, HttpRequest } from "@azure/functions"
 import { JobOffer } from "../types/database_types";
 import { validateToken } from "../utility/validateToken";
 import { v4 as uuidv4 } from "uuid";
+import { responseFactory } from "../utility/response_factory";
 
 const createUpdateJobOffer: AzureFunction = async (context: Context, req: HttpRequest, outputDocument: any): Promise<void> => {
     const user_id = await validateToken(req.headers);
 
     if (user_id == "No Token Found") {
-        context.res = {
-            status: 401,
-            body: "Token not found."
-        }
+        context.res = responseFactory("Token not found.", 401);
         return;
     }
 
     if (user_id == "Invalid Session") {
-        context.res = {
-            status: 401,
-            body: "Token invalid."
-        }
+        context.res = responseFactory("Token invalid.", 401);
         return;
     }
 
@@ -37,14 +32,9 @@ const createUpdateJobOffer: AzureFunction = async (context: Context, req: HttpRe
                 city_id: context.req.body.city,
                 state_id: context.req.body.state
             });
-            context.res = {
-                body: "Record added to Cosmos DB"
-            }
+            context.res = responseFactory("Record added to Cosmos DB.");
     } else {
-        context.res = {
-            status: 400,
-            body: "Need to include preferences for a job offer"
-        }
+        context.res = responseFactory("Need to include preferences for a job offer.", 400);
     }
 };
 
