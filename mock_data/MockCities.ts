@@ -1,6 +1,6 @@
 import { City } from "../types/database_types";
 
-export const FakeCityChicago: City =  {
+export const FakeCityChicago: City = {
     id: "123",
     name: "Chicago",
     state_id: "123",
@@ -21,5 +21,18 @@ export const FakeCityChicago: City =  {
     population_65_to_74: 1,
     population_75_and_older: 1,
     male_population: 1,
-    female_population: 1
+    female_population: 1,
+    avg_temp_jan: 1,
+    avg_temp_feb: 1,
+    avg_temp_march: 1,
+    avg_temp_april: 1,
+    avg_temp_may: 1,
+    avg_temp_june: 1,
+    avg_temp_july: 1,
+    avg_temp_aug: 1,
+    avg_temp_sept: 1,
+    avg_temp_oct: 1,
+    avg_temp_nov: 1,
+    avg_temp_dec: 1,
+    average_groceries_cost: 1
 }
