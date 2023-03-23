@@ -112,3 +112,18 @@ export interface JobOfferDetails {
     city_id: string,
     state_id: string
 }
+
+export interface JobOfferComparison {
+    offer1ID: string,
+    offer2ID: string,
+    offer1TotalCompensation: number,
+    offer2TotalCompensation: number,
+    offer1TotalCompensationWithLivingCosts: number,
+    offer2TotalCompensationWithLivingCosts: number,
+    offer1TemperatureMatch?: boolean,
+    offer2TemperatureMatch?: boolean,
+    offer1CityDemographicMatch?: boolean,
+    offer2CityDemographicMatch?: boolean,
+    offer1SalaryMatch?: boolean,
+    offer2SalaryMatch?: boolean,
+}
