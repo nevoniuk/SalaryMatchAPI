@@ -14,7 +14,7 @@ describe('GetCompanies tests', () => {
 
         expect(res.status).toEqual(404)
 
-        expect(res.body).toEqual('No companies found')
+        expect(res.body).toEqual(JSON.stringify('No companies found'))
     }),
 
     it('Gives returns cities when found in DB', async () => {
