@@ -12,9 +12,9 @@ describe('GetCompanies tests', () => {
     it('Gives 404 on no cities found', async () => {
         const res = await mockedRequestFactory(null)
 
-        expect(res.status).toEqual(404)
+        expect(res.statusCode).toEqual(404)
 
-        expect(res.body).toEqual('No companies found')
+        expect(res.body).toEqual(JSON.stringify('No companies found'))
     }),
 
     it('Gives returns cities when found in DB', async () => {
