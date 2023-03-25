@@ -21,5 +21,18 @@ export const FakeCityChicago: City =  {
     population_65_to_74: 1,
     population_75_and_older: 1,
     male_population: 1,
-    female_population: 1
+    female_population: 1,
+    avg_temp_jan: 45,
+    avg_temp_feb: 45,
+    avg_temp_march: 45,
+    avg_temp_april: 45,
+    avg_temp_may: 45,
+    avg_temp_june: 45,
+    avg_temp_july: 45,
+    avg_temp_aug: 45,
+    avg_temp_sept: 45,
+    avg_temp_oct: 45,
+    avg_temp_nov: 45,
+    avg_temp_dec: 45,
+    average_groceries_cost: 3
 }

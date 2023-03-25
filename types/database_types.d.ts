@@ -93,3 +93,11 @@ export interface CompanyReview {
     overall_rating: number,
     comment: string
 }
+
+export interface UserFeedback {
+    id: string,
+    first_name: string,
+    last_name: string,
+    email: string,
+    message: string
+}

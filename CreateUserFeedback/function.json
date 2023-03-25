@@ -1,0 +1,29 @@
+{
+  "bindings": [
+      {
+      "authLevel": "anonymous",
+      "type": "httpTrigger",
+      "direction": "in",
+      "name": "req",
+      "methods": [
+          "post"
+      ],
+      "route": "userfeedback"
+      },
+      {
+      "type": "http",
+      "direction": "out",
+      "name": "res"
+      },
+      {
+      "type": "cosmosDB",
+      "direction": "out",
+      "name": "outputDocument",
+      "databaseName": "SalaryMatchDB",
+      "collectionName": "UserFeedback",
+      "connectionStringSetting": "CosmosDbConnectionString",
+      "createIfNotExists": true
+      }
+  ],
+  "scriptFile": "../dist/CreateUserFeedback/index.js"
+}
