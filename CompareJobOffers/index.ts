@@ -32,7 +32,7 @@ const compareJobOffers: AzureFunction = async (context: Context, req: HttpReques
     }
 
     const city1Query: SqlQuerySpec = {
-        query: "SELECT * FROM c WHERE c.name = @name",
+        query: "SELECT * FROM c WHERE LOWER(c.name) = LOWER(@name)",
         parameters: [
             {
                 name: "@name",
@@ -41,7 +41,7 @@ const compareJobOffers: AzureFunction = async (context: Context, req: HttpReques
         ]
     };
     const city2Query: SqlQuerySpec = {
-        query: "SELECT * FROM c WHERE c.name = @name",
+        query: "SELECT * FROM c WHERE LOWER(c.name) = LOWER(@name)",
         parameters: [
             {
                 name: "@name",
@@ -54,11 +54,11 @@ const compareJobOffers: AzureFunction = async (context: Context, req: HttpReques
     const { resources: offer2Cities }: { resources: City[] } = await citiesContainer.items.query(city2Query).fetchAll();
 
     const city1 = offer1Cities.length > 0 ? offer1Cities[0] : null;
-    const city2 = offer2Cities.length > 0 ? offer1Cities[0] : null;
+    const city2 = offer2Cities.length > 0 ? offer2Cities[0] : null;
 
     const user = (await usersContainer.item(user_id, user_id).read<User>()).resource;
 
-    context.res = responseFactory(createOfferComparison(offer1, offer2, city1, city2, user));
+    context.res = responseFactory(createOfferComparison(context, offer1, offer2, city1, city2, user));
 };
 
 export default compareJobOffers;

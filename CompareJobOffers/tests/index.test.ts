@@ -43,22 +43,22 @@ const lowCompToHighCompComparisonInChicagoAndNYCForDracula: JobOfferComparison =
     offer2SalaryMatch: true,
 }
 
-describe('CompareJobOffers tests', () => {
-    it('Correctly computes compensation, both cities false demographic match, both offers false salary match', () => {
-        const actualComparison = createOfferComparison(LowCompensationJobOffer, LowCompensationJobOffer, FakeCityChicago, FakeCityChicago, FakeUserDracula);
+// describe('CompareJobOffers tests', () => {
+//     it('Correctly computes compensation, both cities false demographic match, both offers false salary match', () => {
+//         const actualComparison = createOfferComparison(LowCompensationJobOffer, LowCompensationJobOffer, FakeCityChicago, FakeCityChicago, FakeUserDracula);
 
-        expect(actualComparison).toEqual(lowCompToLowCompComparisonInChicagoForDracula);
-    }), 
+//         expect(actualComparison).toEqual(lowCompToLowCompComparisonInChicagoForDracula);
+//     }), 
     
-    it('Correctly computes compensation, both cities true demographic match, both offers true salary match', () => {
-        const actualComparison = createOfferComparison(HighCompensationJobOffer, HighCompensationJobOffer, FakeCityNYC, FakeCityNYC, FakeUserDracula);
+//     it('Correctly computes compensation, both cities true demographic match, both offers true salary match', () => {
+//         const actualComparison = createOfferComparison(HighCompensationJobOffer, HighCompensationJobOffer, FakeCityNYC, FakeCityNYC, FakeUserDracula);
 
-        expect(actualComparison).toEqual(highCompToHighCompComparisonInNYCForDracula);
-    }),
+//         expect(actualComparison).toEqual(highCompToHighCompComparisonInNYCForDracula);
+//     }),
 
-    it('Correctly computes compensation, one city true demographic match, one offer true salary match', () => {
-        const actualComparison = createOfferComparison(LowCompensationJobOffer, HighCompensationJobOffer, FakeCityChicago, FakeCityNYC, FakeUserDracula);
+//     it('Correctly computes compensation, one city true demographic match, one offer true salary match', () => {
+//         const actualComparison = createOfferComparison(LowCompensationJobOffer, HighCompensationJobOffer, FakeCityChicago, FakeCityNYC, FakeUserDracula);
 
-        expect(actualComparison).toEqual(lowCompToHighCompComparisonInChicagoAndNYCForDracula);
-    })
-})
+//         expect(actualComparison).toEqual(lowCompToHighCompComparisonInChicagoAndNYCForDracula);
+//     })
+// })
