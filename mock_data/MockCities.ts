@@ -34,7 +34,8 @@ export const FakeCityChicago: City = {
     avg_temp_oct: 1,
     avg_temp_nov: 1,
     avg_temp_dec: 1,
-    average_groceries_cost: 1
+    average_groceries_cost: 1,
+    average_utility_cost: 1
 }
 
 export const FakeCityNYC: City = {
@@ -59,17 +60,18 @@ export const FakeCityNYC: City = {
     population_75_and_older: 1,
     male_population: 1,
     female_population: 1,
-    avg_temp_jan: 45,
-    avg_temp_feb: 45,
-    avg_temp_march: 45,
-    avg_temp_april: 45,
-    avg_temp_may: 45,
-    avg_temp_june: 45,
-    avg_temp_july: 45,
-    avg_temp_aug: 45,
-    avg_temp_sept: 45,
-    avg_temp_oct: 45,
-    avg_temp_nov: 45,
-    avg_temp_dec: 45,
-    average_groceries_cost: 3
+    avg_temp_jan: 80,
+    avg_temp_feb: 80,
+    avg_temp_march: 80,
+    avg_temp_april: 80,
+    avg_temp_may: 80,
+    avg_temp_june: 80,
+    avg_temp_july: 80,
+    avg_temp_aug: 80,
+    avg_temp_sept: 80,
+    avg_temp_oct: 80,
+    avg_temp_nov: 80,
+    avg_temp_dec: 80,
+    average_groceries_cost: 3,
+    average_utility_cost: 1
 }

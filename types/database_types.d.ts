@@ -32,7 +32,8 @@ export interface City {
     avg_temp_oct: number,
     avg_temp_nov: number,
     avg_temp_dec: number,
-    average_groceries_cost: number
+    average_groceries_cost: number,
+    average_utility_cost: number
 }
 
 export interface State {

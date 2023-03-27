@@ -39,11 +39,11 @@ export const createOfferComparison = (offer1: JobOffer, offer2: JobOffer, city1:
         const city1PopulationDistribution = (city1.population_under_25 + city1.population_25_to_29) >= (city1.total_population * 0.5) ? "Young" : "Old";
         const city1AvgTemp = [city1.avg_temp_jan + city1.avg_temp_feb + city1.avg_temp_march + city1.avg_temp_april + city1.avg_temp_may + city1.avg_temp_june 
             + city1.avg_temp_july + city1.avg_temp_aug + city1.avg_temp_sept + city1.avg_temp_oct + city1.avg_temp_nov + city1.avg_temp_dec]
-            .reduce((total, current) => total + current) / 12;
-        const city1TempType = city1AvgTemp <= 0.75 * avgTempUS ? "Cold" : city1AvgTemp <= avgTempUS ? "Mild" : "Hot";
+            .reduce((total, current) => total + current) / 12.0;
+        const city1TempType = city1AvgTemp <= 0.75 * avgTempUS ? "Cold" : city1AvgTemp <= avgTempUS * 1.25 ? "Mild" : "Hot";
         offerComparison = {
             ...offerComparison,
-            offer1TotalCompensationWithLivingCosts: offerComparison.offer1TotalCompensationWithLivingCosts - 12 * (city1.average_rent + city1.average_groceries_cost),
+            offer1TotalCompensationWithLivingCosts: offerComparison.offer1TotalCompensationWithLivingCosts - 12 * (city1.average_rent + city1.average_groceries_cost + city1.average_utility_cost),
             offer1CityDemographicMatch: user.demographic_preference ? city1PopulationDistribution === user.demographic_preference : undefined,
             offer1TemperatureMatch: user.temperature_preference ? city1TempType === user.temperature_preference : undefined
         };
@@ -53,11 +53,11 @@ export const createOfferComparison = (offer1: JobOffer, offer2: JobOffer, city1:
         const city2PopulationDistribution = (city2.population_under_25 + city2.population_25_to_29) >= (city2.total_population * 0.5) ? "Young" : "Old";
         const city2AvgTemp = [city2.avg_temp_jan + city2.avg_temp_feb + city2.avg_temp_march + city2.avg_temp_april + city2.avg_temp_may + city2.avg_temp_june 
             + city2.avg_temp_july + city2.avg_temp_aug + city2.avg_temp_sept + city2.avg_temp_oct + city2.avg_temp_nov + city2.avg_temp_dec]
-            .reduce((total, current) => total + current) / 12;
-        const city2TempType = city2AvgTemp <= 0.75 * avgTempUS ? "Cold" : city2AvgTemp <= avgTempUS ? "Mild" : "Hot";
+            .reduce((total, current) => total + current) / 12.0;
+        const city2TempType = city2AvgTemp <= 0.75 * avgTempUS ? "Cold" : city2AvgTemp <= avgTempUS * 1.25 ? "Mild" : "Hot";
         offerComparison = {
             ...offerComparison,
-            offer2TotalCompensationWithLivingCosts: offerComparison.offer2TotalCompensationWithLivingCosts - 12 * (city2.average_rent + city2.average_groceries_cost),
+            offer2TotalCompensationWithLivingCosts: offerComparison.offer2TotalCompensationWithLivingCosts - 12 * (city2.average_rent + city2.average_groceries_cost + city2.average_utility_cost),
             offer2CityDemographicMatch: user.demographic_preference ? city2PopulationDistribution === user.demographic_preference : undefined,
             offer2TemperatureMatch: user.temperature_preference ? city2TempType === user.temperature_preference : undefined
         }
