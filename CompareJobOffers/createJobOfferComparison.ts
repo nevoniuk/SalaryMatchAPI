@@ -2,7 +2,7 @@ import { Context } from "@azure/functions";
 import { City, JobOffer, User } from "../types/database_types";
 import { JobOfferComparison } from "../types/object_transfer_types";
 
-export const createOfferComparison = (context: Context, offer1: JobOffer, offer2: JobOffer, city1: City, city2: City, user: User): JobOfferComparison => {
+export const createOfferComparison = (offer1: JobOffer, offer2: JobOffer, city1: City, city2: City, user: User): JobOfferComparison => {
     let offer1SalaryMatch = false;
     let offer2SalaryMatch = false;
 
@@ -41,7 +41,6 @@ export const createOfferComparison = (context: Context, offer1: JobOffer, offer2
             + city1.avg_temp_july + city1.avg_temp_aug + city1.avg_temp_sept + city1.avg_temp_oct + city1.avg_temp_nov + city1.avg_temp_dec]
             .reduce((total, current) => total + current) / 12;
         const city1TempType = city1AvgTemp <= 0.75 * avgTempUS ? "Cold" : city1AvgTemp <= avgTempUS ? "Mild" : "Hot";
-        context.log(city1);
         offerComparison = {
             ...offerComparison,
             offer1TotalCompensationWithLivingCosts: offerComparison.offer1TotalCompensationWithLivingCosts - 12 * (city1.average_rent + city1.average_groceries_cost),
@@ -56,7 +55,6 @@ export const createOfferComparison = (context: Context, offer1: JobOffer, offer2
             + city2.avg_temp_july + city2.avg_temp_aug + city2.avg_temp_sept + city2.avg_temp_oct + city2.avg_temp_nov + city2.avg_temp_dec]
             .reduce((total, current) => total + current) / 12;
         const city2TempType = city2AvgTemp <= 0.75 * avgTempUS ? "Cold" : city2AvgTemp <= avgTempUS ? "Mild" : "Hot";
-        context.log(city2);
         offerComparison = {
             ...offerComparison,
             offer2TotalCompensationWithLivingCosts: offerComparison.offer2TotalCompensationWithLivingCosts - 12 * (city2.average_rent + city2.average_groceries_cost),

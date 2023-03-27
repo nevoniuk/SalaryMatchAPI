@@ -58,7 +58,7 @@ const compareJobOffers: AzureFunction = async (context: Context, req: HttpReques
 
     const user = (await usersContainer.item(user_id, user_id).read<User>()).resource;
 
-    context.res = responseFactory(createOfferComparison(context, offer1, offer2, city1, city2, user));
+    context.res = responseFactory(createOfferComparison(offer1, offer2, city1, city2, user));
 };
 
 export default compareJobOffers;
