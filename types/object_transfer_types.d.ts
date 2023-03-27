@@ -97,7 +97,13 @@ export interface BasicCompanyInfo {
 
 export interface CompanyDetails {
     id: string,
-    name: string
+    name: string,
+    percent_male: number,
+    percent_female: number,
+    percent_caucasian: number,
+    percent_asian: number,
+    percent_latino: number,
+    percent_black: number
 }
 
 export interface BasicCompanyReview {

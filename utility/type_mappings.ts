@@ -111,7 +111,13 @@ export const companyToBasicCompanyInfo = (company: Company): BasicCompanyInfo =>
 export const companyToCompanyDetails = (company: Company): CompanyDetails => {
     return {
         id: company.id,
-        name: company.name
+        name: company.name,
+        percent_male: company.percent_male,
+        percent_female: company.percent_female,
+        percent_caucasian: company.percent_caucasian,
+        percent_asian: company.percent_asian,
+        percent_latino: company.percent_latino,
+        percent_black: company.percent_black
     }
 }
 

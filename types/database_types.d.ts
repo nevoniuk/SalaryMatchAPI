@@ -89,7 +89,13 @@ export interface JobOffer {
 
 export interface Company {
     id: string,
-    name: string
+    name: string,
+    percent_male: number,
+    percent_female: number,
+    percent_caucasian: number,
+    percent_asian: number,
+    percent_latino: number,
+    percent_black: number
 }
 
 export interface CompanyReview {
