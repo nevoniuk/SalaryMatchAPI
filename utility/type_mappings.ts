@@ -35,7 +35,15 @@ export const cityToCityDetails = (city: City): CityDetails => {
         avg_temp_oct: city.avg_temp_oct,
         avg_temp_nov: city.avg_temp_nov,
         avg_temp_dec: city.avg_temp_dec,
-        average_groceries_cost: city.average_groceries_cost
+        average_groceries_cost: city.average_groceries_cost,
+        average_utility_cost: city.average_utility_cost,
+        average_electricity_cost: city.average_electricity_cost,
+        average_gas_cost: city.average_gas_cost,
+        average_trash_cost: city.average_trash_cost,
+        average_water_cost: city.average_water_cost,
+        state_abortion_laws: city.state_abortion_laws,
+        state_cannabis_legality: city.state_cannabis_legality,
+        crime_rate_per_1000: city.crime_rate_per_1000
     }
 }
 
