@@ -32,7 +32,15 @@ export interface CityDetails {
     avg_temp_oct: number,
     avg_temp_nov: number,
     avg_temp_dec: number,
-    average_groceries_cost: number
+    average_groceries_cost: number,
+    average_utility_cost: number,
+    average_electricity_cost: number,
+    average_gas_cost: number,
+    average_trash_cost: number,
+    average_water_cost: number,
+    state_abortion_laws: string,
+    state_cannabis_legality: string,
+    crime_rate_per_1000: number
 }
 
 export interface BasicCityInfo {
@@ -89,7 +97,13 @@ export interface BasicCompanyInfo {
 
 export interface CompanyDetails {
     id: string,
-    name: string
+    name: string,
+    percent_male: number,
+    percent_female: number,
+    percent_caucasian: number,
+    percent_asian: number,
+    percent_latino: number,
+    percent_black: number
 }
 
 export interface BasicCompanyReview {
