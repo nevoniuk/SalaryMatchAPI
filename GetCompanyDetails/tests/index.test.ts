@@ -24,14 +24,14 @@ describe('GetCompanies tests', () => {
     // })
 
     it('returns company demographcis', async () => {
-        const res = await mockedRequestFactory([FakeCompanyGoogle])
+        const res = await mockedRequestFactory(FakeCompanyGoogle)
         console.log(res.body)
         console.log("HMMM", JSON.stringify([companyToCompanyDetails(FakeCompanyGoogle)]))
-        expect(res.body).toEqual(JSON.stringify([companyToCompanyDetails(FakeCompanyGoogle)]));
+        expect(res.body).toEqual(JSON.stringify(companyToCompanyDetails(FakeCompanyGoogle)));
     })
 })
 
-const mockedRequestFactory = async (companies: Company[]) => {
+const mockedRequestFactory = async (company: Company) => {
     const context: Context = stubContextFromBindingDefinitions([
         {
             type: 'httpTrigger',
@@ -45,7 +45,7 @@ const mockedRequestFactory = async (companies: Company[]) => {
         { type: 'http', name: '$return', direction: 'out' }
     ])
 
-    await getCompanyDetails(context, context.req, companies);
+    await getCompanyDetails(context, context.req, company);
     console.log(context.res)
     return context.res;
 }
