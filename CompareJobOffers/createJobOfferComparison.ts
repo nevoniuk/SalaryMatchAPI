@@ -43,7 +43,7 @@ export const createOfferComparison = (offer1: JobOffer, offer2: JobOffer, city1:
         const city1TempType = city1AvgTemp <= 0.75 * avgTempUS ? "Cold" : city1AvgTemp <= avgTempUS * 1.25 ? "Mild" : "Hot";
         offerComparison = {
             ...offerComparison,
-            offer1TotalCompensationWithLivingCosts: offerComparison.offer1TotalCompensationWithLivingCosts - 12 * (city1.average_rent + city1.average_groceries_cost + city1.average_utility_cost),
+            offer1TotalCompensationWithLivingCosts: offerComparison.offer1TotalCompensationWithLivingCosts - 12 * (city1.average_rent + city1.average_groceries_cost * 8 + city1.average_utility_cost),
             offer1CityDemographicMatch: user.demographic_preference ? city1PopulationDistribution === user.demographic_preference : undefined,
             offer1TemperatureMatch: user.temperature_preference ? city1TempType === user.temperature_preference : undefined
         };
@@ -57,7 +57,7 @@ export const createOfferComparison = (offer1: JobOffer, offer2: JobOffer, city1:
         const city2TempType = city2AvgTemp <= 0.75 * avgTempUS ? "Cold" : city2AvgTemp <= avgTempUS * 1.25 ? "Mild" : "Hot";
         offerComparison = {
             ...offerComparison,
-            offer2TotalCompensationWithLivingCosts: offerComparison.offer2TotalCompensationWithLivingCosts - 12 * (city2.average_rent + city2.average_groceries_cost + city2.average_utility_cost),
+            offer2TotalCompensationWithLivingCosts: offerComparison.offer2TotalCompensationWithLivingCosts - 12 * (city2.average_rent + city2.average_groceries_cost * 8 + city2.average_utility_cost),
             offer2CityDemographicMatch: user.demographic_preference ? city2PopulationDistribution === user.demographic_preference : undefined,
             offer2TemperatureMatch: user.temperature_preference ? city2TempType === user.temperature_preference : undefined
         }
