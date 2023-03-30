@@ -14,3 +14,4 @@ export const loginAttemptsContainer: Container = database.container("LoginAttemp
 export const companyReviewsContainer: Container = database.container("CompanyReviews");
 export const cityReviewsContainer: Container = database.container("CityReviews");
 export const jobOffersContainer: Container = database.container("JobOffers");
+export const citiesContainer: Container = database.container("Cities");
