@@ -80,7 +80,7 @@ export const FakeCityNYC: City = {
     avg_temp_nov: 80,
     avg_temp_dec: 80,
     average_groceries_cost: 3,
-    average_utility_cost: 1
+    average_utility_cost: 1,
     average_electricity_cost: 4,
     average_gas_cost: 1,
     average_trash_cost: 2,
