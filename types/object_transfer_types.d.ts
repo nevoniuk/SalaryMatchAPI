@@ -114,6 +114,13 @@ export interface BasicCompanyReview {
     comment: string
 }
 
+export interface BasicCityReview {
+    id: string,
+    user_id: string,
+    overall_rating: number,
+    comment: string
+}
+
 // Job Offers
 export interface JobOfferDetails {
     id: string,
