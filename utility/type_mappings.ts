@@ -35,7 +35,15 @@ export const cityToCityDetails = (city: City): CityDetails => {
         avg_temp_oct: city.avg_temp_oct,
         avg_temp_nov: city.avg_temp_nov,
         avg_temp_dec: city.avg_temp_dec,
-        average_groceries_cost: city.average_groceries_cost
+        average_groceries_cost: city.average_groceries_cost,
+        average_utility_cost: city.average_utility_cost,
+        average_electricity_cost: city.average_electricity_cost,
+        average_gas_cost: city.average_gas_cost,
+        average_trash_cost: city.average_trash_cost,
+        average_water_cost: city.average_water_cost,
+        state_abortion_laws: city.state_abortion_laws,
+        state_cannabis_legality: city.state_cannabis_legality,
+        crime_rate_per_1000: city.crime_rate_per_1000
     }
 }
 
@@ -103,7 +111,13 @@ export const companyToBasicCompanyInfo = (company: Company): BasicCompanyInfo =>
 export const companyToCompanyDetails = (company: Company): CompanyDetails => {
     return {
         id: company.id,
-        name: company.name
+        name: company.name,
+        percent_male: company.percent_male,
+        percent_female: company.percent_female,
+        percent_caucasian: company.percent_caucasian,
+        percent_asian: company.percent_asian,
+        percent_latino: company.percent_latino,
+        percent_black: company.percent_black
     }
 }
 
