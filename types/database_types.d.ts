@@ -107,6 +107,16 @@ export interface CompanyReview {
     comment: string
 }
 
+export interface CityReview {
+    id: string,
+    user_id: string,
+    is_anonymous: boolean,
+    city_id: string,
+    overall_rating: number,
+    comment: string
+}
+
+
 export interface UserFeedback {
     id: string,
     first_name: string,

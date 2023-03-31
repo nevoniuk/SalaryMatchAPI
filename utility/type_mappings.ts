@@ -1,5 +1,5 @@
-import { City, Company, CompanyReview, JobOffer, State, User } from "../types/database_types";
-import { BasicCityInfo, BasicCompanyInfo, BasicCompanyReview, BasicStateInfo, BasicUserInfo, CityDetails, CompanyDetails, JobOfferDetails, StateDetails, UserInfo } from "../types/object_transfer_types";
+import { City, Company, CompanyReview, CityReview, JobOffer, State, User } from "../types/database_types";
+import { BasicCityInfo, BasicCompanyInfo, BasicCompanyReview, BasicCityReview, BasicStateInfo, BasicUserInfo, CityDetails, CompanyDetails, JobOfferDetails, StateDetails, UserInfo } from "../types/object_transfer_types";
 
 export const cityToCityDetails = (city: City): CityDetails => {
     return {
@@ -65,6 +65,7 @@ export const stateToBasicStateInfo = (state: State): BasicStateInfo => {
 export const stateToStateDetails = (state: State): StateDetails => {
     return {
         id: state.id,
+        name: state.name,
         state_tax_rate: state.state_tax_rate,
         avg_local_tax_rate: state.avg_local_tax_rate,
         combined_rate: state.combined_rate,
@@ -127,6 +128,15 @@ export const companyReviewToBasicCompanyReviewInfo = (companyReview: CompanyRevi
         user_id: companyReview.is_anonymous ? null : companyReview.user_id,
         overall_rating: companyReview.overall_rating,
         comment: companyReview.comment
+    }
+}
+
+export const cityReviewToBasicCityReviewInfo = (cityReview: CityReview): BasicCityReview => {
+    return {
+        id: cityReview.id,
+        user_id: cityReview.is_anonymous ? null : cityReview.user_id,
+        overall_rating: cityReview.overall_rating,
+        comment: cityReview.comment
     }
 }
 

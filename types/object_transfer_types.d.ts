@@ -57,6 +57,7 @@ export interface BasicStateInfo {
 
 export interface StateDetails {
     id: string,
+    name: string,
     state_tax_rate: number,
     avg_local_tax_rate: number,
     combined_rate: number,
@@ -113,6 +114,13 @@ export interface BasicCompanyReview {
     comment: string
 }
 
+export interface BasicCityReview {
+    id: string,
+    user_id: string,
+    overall_rating: number,
+    comment: string
+}
+
 // Job Offers
 export interface JobOfferDetails {
     id: string,
@@ -125,4 +133,19 @@ export interface JobOfferDetails {
     company: string,
     city_id: string,
     state_id: string
+}
+
+export interface JobOfferComparison {
+    offer1ID: string,
+    offer2ID: string,
+    offer1TotalCompensation: number,
+    offer2TotalCompensation: number,
+    offer1TotalCompensationWithLivingCosts: number,
+    offer2TotalCompensationWithLivingCosts: number,
+    offer1TemperatureMatch?: boolean,
+    offer2TemperatureMatch?: boolean,
+    offer1CityDemographicMatch?: boolean,
+    offer2CityDemographicMatch?: boolean,
+    offer1SalaryMatch?: boolean,
+    offer2SalaryMatch?: boolean,
 }

@@ -1,0 +1,29 @@
+{
+  "bindings": [
+    {
+      "authLevel": "anonymous",
+      "type": "httpTrigger",
+      "direction": "in",
+      "name": "req",
+      "methods": [
+        "post"
+      ],
+      "route": "cities/{city_id}/reviews"
+    },
+    {
+      "type": "http",
+      "direction": "out",
+      "name": "res"
+    },
+    {
+      "type": "cosmosDB",
+      "direction": "out",
+      "name": "cityReview",
+      "databaseName": "SalaryMatchDB",
+      "collectionName": "CityReviews",
+      "connectionStringSetting": "CosmosDbConnectionString",
+      "createIfNotExists": true
+    }
+  ],
+  "scriptFile": "../dist/PostCityReview/index.js"
+}
