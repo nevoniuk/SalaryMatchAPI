@@ -40,7 +40,8 @@ export interface CityDetails {
     average_water_cost: number,
     state_abortion_laws: string,
     state_cannabis_legality: string,
-    crime_rate_per_1000: number
+    crime_rate_per_1000: number,
+    state_school_score: number
 }
 
 export interface BasicCityInfo {
