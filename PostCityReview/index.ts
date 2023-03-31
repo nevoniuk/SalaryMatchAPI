@@ -20,7 +20,7 @@ const postCityReview: AzureFunction = async (context: Context, req: HttpRequest)
         && context.req.body.overall_rating && context.req.body.comment) {
             context.bindings.cityReview = JSON.stringify({
                 id: randomUUID(),
-                user_id: context.req.body.user_id,
+                user_id: user_id,
                 is_anonymous: context.req.body.is_anonymous,
                 city_id: context.bindingData.city_id,
                 overall_rating: context.req.body.overall_rating,
