@@ -42,7 +42,8 @@ export const FakeCityChicago: City = {
     average_water_cost: 7,
     state_abortion_laws: "Fully legal",
     state_cannabis_legality: "Medicinal use only",
-    crime_rate_per_1000: 2345.90
+    crime_rate_per_1000: 2345.90,
+    state_school_score: 10
 }
 
 export const FakeCityNYC: City = {
@@ -87,5 +88,6 @@ export const FakeCityNYC: City = {
     average_water_cost: 7,
     state_abortion_laws: "Fully legal",
     state_cannabis_legality: "Medicinal use only",
-    crime_rate_per_1000: 2345.90
+    crime_rate_per_1000: 2345.90,
+    state_school_score: 10
 }
