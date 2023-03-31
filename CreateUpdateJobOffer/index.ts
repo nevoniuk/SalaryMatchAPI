@@ -23,11 +23,11 @@ const createUpdateJobOffer: AzureFunction = async (context: Context, req: HttpRe
             context.bindings.outputDocument = JSON.stringify({
                 id: context.req.body.id ? context.req.body.id : uuidv4(),
                 user_id: user_id,
-                RSU: context.req.body.RSU,
-                signing_bonus: context.req.body.signing_bonus,
-                relocation_bonus: context.req.body.relocation_bonus,
+                RSU: parseFloat(context.req.body.RSU),
+                signing_bonus: parseFloat(context.req.body.signing_bonus),
+                relocation_bonus: parseFloat(context.req.body.relocation_bonus),
                 title: context.req.body.title,
-                salary: context.req.body.salary,
+                salary: parseFloat(context.req.body.salary),
                 company: context.req.body.company,
                 city_id: context.req.body.city_id,
                 state_id: context.req.body.state_id
