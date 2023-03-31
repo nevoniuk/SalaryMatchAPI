@@ -29,8 +29,8 @@ const createUpdateJobOffer: AzureFunction = async (context: Context, req: HttpRe
                 title: context.req.body.title,
                 salary: context.req.body.salary,
                 company: context.req.body.company,
-                city_id: context.req.body.city,
-                state_id: context.req.body.state
+                city_id: context.req.body.city_id,
+                state_id: context.req.body.state_id
             });
             context.res = responseFactory("Record added to Cosmos DB.");
     } else {
