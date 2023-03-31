@@ -15,13 +15,11 @@ describe('GetCompanies tests', () => {
         expect(res.statusCode).toEqual(404)
 
         expect(res.body).toEqual(JSON.stringify('Company not found'))
-        console.log("YEE", res.body)
     })
 
+    // As a user, I would like to know company demographics (gender, race, title, degree).
     it('returns company demographcis', async () => {
         const res = await mockedRequestFactory(FakeCompanyGoogle)
-        console.log(res.body)
-        console.log("HMMM", JSON.stringify([companyToCompanyDetails(FakeCompanyGoogle)]))
         expect(res.body).toEqual(JSON.stringify(companyToCompanyDetails(FakeCompanyGoogle)));
     })
 })
@@ -41,6 +39,5 @@ const mockedRequestFactory = async (company: Company) => {
     ])
 
     await getCompanyDetails(context, context.req, company);
-    console.log(context.res)
     return context.res;
 }
