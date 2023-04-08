@@ -1,4 +1,3 @@
-import { Context } from "@azure/functions";
 import { City, JobOffer, User } from "../types/database_types";
 import { JobOfferComparison } from "../types/object_transfer_types";
 
