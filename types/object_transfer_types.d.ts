@@ -154,6 +154,6 @@ export interface JobOfferComparison {
 export interface JobOfferAggregateComparison {
     sameCityAvgTotalCompensation: number,
     sameCompanyAvgTotalCompensation: number,
-    sameCityAvgTotalCompensationWithLivingCosts?: number,
-    sameCompanyAvgTotalCompensationWithLivingCosts?: number,
+    sameCityAvgTotalCompensationWithLivingCosts: number,
+    sameCompanyAvgTotalCompensationWithLivingCosts: number,
 }
