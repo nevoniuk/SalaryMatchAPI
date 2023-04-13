@@ -91,3 +91,5 @@ export const FakeCityNYC: City = {
     crime_rate_per_1000: 2345.90,
     state_school_score: 10
 }
+
+export const ChicagoAndNYCCityList = [FakeCityChicago, FakeCityNYC];

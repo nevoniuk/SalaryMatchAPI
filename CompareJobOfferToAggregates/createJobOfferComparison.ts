@@ -10,12 +10,18 @@ export const createOfferAggregateComparison = (sameCityOffers: JobOffer[], sameC
     }
 }
 
-const findAvgJobOfferCompensation = (offerList: JobOffer[]): number => {
+export const findAvgJobOfferCompensation = (offerList: JobOffer[]): number => {
+    if (offerList.length == 0) {
+        return 0.0;
+    }
     return offerList.reduce(
         (prev, current) => prev + current.salary + current.RSU + current.relocation_bonus + current.signing_bonus, 0.0) / offerList.length;
 }
 
-const findAvgJobOfferCompensationWithLivingCosts = (offerList: JobOffer[], cities: City[]): number => {
+export const findAvgJobOfferCompensationWithLivingCosts = (offerList: JobOffer[], cities: City[]): number => {
+    if (offerList.length == 0) {
+        return 0.0;
+    }
     return offerList.reduce(
         (prev, current) => {
             const offerCity = cities.find((city) => city.name === current.city_id);

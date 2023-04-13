@@ -1,70 +1,43 @@
-// import { FakeCityChicago, FakeCityNYC } from "../../mock_data/MockCities"
-// import { HighCompensationJobOffer, LowCompensationJobOffer } from "../../mock_data/MockJobOffers"
-// import { FakeUserDracula } from "../../mock_data/MockUsers"
-// import { JobOfferComparison } from "../../types/object_transfer_types"
-// import { createOfferComparison } from "../createJobOfferComparison"
+import { ChicagoAndNYCCityList } from "../../mock_data/MockCities";
+import { HighCompensationJobOffer, LowAndHighCompensationJobOfferList, LowCompensationJobOffer } from "../../mock_data/MockJobOffers"
+import { createOfferAggregateComparison, findAvgJobOfferCompensation, findAvgJobOfferCompensationWithLivingCosts } from "../createJobOfferComparison"
 
-// const lowCompToLowCompComparisonInChicagoForDracula: JobOfferComparison = {
-//     offer1ID: "1",
-//     offer2ID: "1",
-//     offer1TotalCompensation: 41000,
-//     offer2TotalCompensation: 41000,
-//     offer1TotalCompensationWithLivingCosts: 40271.36,
-//     offer2TotalCompensationWithLivingCosts: 40271.36,
-//     offer1CityDemographicMatch: false,
-//     offer2CityDemographicMatch: false,
-//     offer1SalaryMatch: false,
-//     offer2SalaryMatch: false,
-//     offer1TemperatureMatch: false,
-//     offer2TemperatureMatch: false,
-// }
 
-// const highCompToHighCompComparisonInNYCForDracula: JobOfferComparison = {
-//     offer1ID: "2",
-//     offer2ID: "2",
-//     offer1TotalCompensation: 325000,
-//     offer2TotalCompensation: 325000,
-//     offer1TotalCompensationWithLivingCosts: 324688,
-//     offer2TotalCompensationWithLivingCosts: 324688,
-//     offer1CityDemographicMatch: true,
-//     offer2CityDemographicMatch: true,
-//     offer1SalaryMatch: true,
-//     offer2SalaryMatch: true,
-//     offer1TemperatureMatch: true,
-//     offer2TemperatureMatch: true,
-// }
+describe('CompareJobOffers tests', () => {
+    it('findAvgJobOfferCompensation averages total job offer compensation correctly', () => {
+        expect(findAvgJobOfferCompensation(LowAndHighCompensationJobOfferList)).toEqual(183000);
+    }),
 
-// const lowCompToHighCompComparisonInChicagoAndNYCForDracula: JobOfferComparison = {
-//     offer1ID: "1",
-//     offer2ID: "2",
-//     offer1TotalCompensation: 41000,
-//     offer2TotalCompensation: 325000,
-//     offer1TotalCompensationWithLivingCosts: 40271.36,
-//     offer2TotalCompensationWithLivingCosts: 324688,
-//     offer1CityDemographicMatch: false,
-//     offer2CityDemographicMatch: true,
-//     offer1SalaryMatch: false,
-//     offer2SalaryMatch: true,
-//     offer1TemperatureMatch: false,
-//     offer2TemperatureMatch: true,
-// }
+    it('findAvgJobOfferCompensation averages total job offer compensation correctly when list is empty', () => {
+        expect(findAvgJobOfferCompensation([])).toEqual(0);
+    }),
 
-// describe('CompareJobOffers tests', () => {
-//     it('Correctly computes compensation, both cities false demographic match, both offers false salary match, both offers false temp match', () => {
-//         const actualComparison = createOfferComparison(LowCompensationJobOffer, LowCompensationJobOffer, FakeCityChicago, FakeCityChicago, FakeUserDracula);
+    it('findAvgJobOfferCompensation averages total job offer compensation correctly when list has one element', () => {
+        expect(findAvgJobOfferCompensation([LowCompensationJobOffer])).toEqual(41000);
+    }),
 
-//         expect(actualComparison).toEqual(lowCompToLowCompComparisonInChicagoForDracula);
-//     }), 
-    
-//     it('Correctly computes compensation, both cities true demographic match, both offers true salary match , both offers true temp match', () => {
-//         const actualComparison = createOfferComparison(HighCompensationJobOffer, HighCompensationJobOffer, FakeCityNYC, FakeCityNYC, FakeUserDracula);
+    it('findAvgJobOfferCompensationWithLivingCosts averages total job offer compensation correctly without cities', () => {
+        expect(findAvgJobOfferCompensationWithLivingCosts(LowAndHighCompensationJobOfferList, [])).toEqual(183000);
+    }),
 
-//         expect(actualComparison).toEqual(highCompToHighCompComparisonInNYCForDracula);
-//     }),
+    it('findAvgJobOfferCompensationWithLivingCosts averages total job offer compensation correctly with cities', () => {
+        expect(findAvgJobOfferCompensationWithLivingCosts(LowAndHighCompensationJobOfferList, ChicagoAndNYCCityList)).toEqual(182271.36);
+    }),
 
-//     it('Correctly computes compensation, one city true demographic match, one offer true salary match, one offer true temp match', () => {
-//         const actualComparison = createOfferComparison(LowCompensationJobOffer, HighCompensationJobOffer, FakeCityChicago, FakeCityNYC, FakeUserDracula);
+    it('findAvgJobOfferCompensationWithLivingCosts averages total job offer compensation correctly when list is empty', () => {
+        expect(findAvgJobOfferCompensationWithLivingCosts([], [])).toEqual(0);
+    }),
 
-//         expect(actualComparison).toEqual(lowCompToHighCompComparisonInChicagoAndNYCForDracula);
-//     })
-// })
+    it('findAvgJobOfferCompensationWithLivingCosts averages total job offer compensation correctly when list has one element', () => {
+        expect(findAvgJobOfferCompensationWithLivingCosts([LowCompensationJobOffer], ChicagoAndNYCCityList)).toEqual(40271.36);
+    }),
+
+    it('createOfferAggregateComparison creates aggregate offer comparison object correctly', () => {
+        expect(createOfferAggregateComparison([LowCompensationJobOffer], [HighCompensationJobOffer], ChicagoAndNYCCityList)).toEqual({
+            sameCityAvgTotalCompensation: 41000,
+            sameCompanyAvgTotalCompensation: 325000,
+            sameCityAvgTotalCompensationWithLivingCosts: 40271.36,
+            sameCompanyAvgTotalCompensationWithLivingCosts: 324271.36
+        });
+    })
+})

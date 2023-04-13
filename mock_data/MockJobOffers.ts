@@ -25,3 +25,5 @@ export const HighCompensationJobOffer: JobOffer = {
     city_id: "Chicago",
     state_id: "Illinois"
 }
+
+export const LowAndHighCompensationJobOfferList: JobOffer[] = [LowCompensationJobOffer, HighCompensationJobOffer];
