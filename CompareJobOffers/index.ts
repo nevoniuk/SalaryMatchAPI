@@ -26,6 +26,11 @@ const compareJobOffers: AzureFunction = async (context: Context, req: HttpReques
     const offer1 = (await jobOffersContainer.item(req.body.offer1ID, req.body.offer1ID).read<JobOffer>()).resource;
     const offer2 = (await jobOffersContainer.item(req.body.offer2ID, req.body.offer2ID).read<JobOffer>()).resource;
 
+    if (!offer1 || !offer2) {
+        context.res = responseFactory("One or both job offers do not exist", 400);
+        return;
+    }
+
     if (offer1.user_id !== user_id || offer2.user_id !== user_id) {
         context.res = responseFactory("User does not have access to one or both job offers.", 401);
         return;
