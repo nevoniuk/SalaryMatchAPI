@@ -1,9 +1,11 @@
 import { Container, Database } from '@azure/cosmos';
+import localSettings from './local.settings.json';
 
 const cosmos = require('@azure/cosmos');
 const { CosmosClient } = cosmos;
 
-const client = new CosmosClient(process.env["CosmosDbConnectionString"]);
+
+const client = new CosmosClient("CosmosDbConnectionString" in process.env ? process.env["CosmosDbConnectionString"] : localSettings.Values.CosmosDbConnectionString);
 // All function invocations also reference the same database and container.
 export const database: Database = client.database("SalaryMatchDB");
 
