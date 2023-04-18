@@ -1,0 +1,14 @@
+{
+  "IsEncrypted": false,
+  "Values": {
+    "AzureWebJobsStorage": "DefaultEndpointsProtocol=https;AccountName=salarymatchbaee;AccountKey=ro4d7Au2u4Hp7Q6qFp640zKt9K9wP3sxVVE43kWoeAi7TqOmFIpMg0xrse6Peo39a17VZmznp6zr+AStX0zm0g==;EndpointSuffix=core.windows.net",
+    "FUNCTIONS_WORKER_RUNTIME": "node",
+    "FUNCTIONS_EXTENSION_VERSION": "~4",
+    "APPINSIGHTS_INSTRUMENTATIONKEY": "369886d0-783f-49ae-956d-dc7e0fcfcbdb",
+    "APPLICATIONINSIGHTS_CONNECTION_STRING": "InstrumentationKey=369886d0-783f-49ae-956d-dc7e0fcfcbdb;IngestionEndpoint=https://centralus-2.in.applicationinsights.azure.com/;LiveEndpoint=https://centralus.livediagnostics.monitor.azure.com/",
+    "WEBSITE_CONTENTAZUREFILECONNECTIONSTRING": "DefaultEndpointsProtocol=https;AccountName=salarymatchbaee;AccountKey=ro4d7Au2u4Hp7Q6qFp640zKt9K9wP3sxVVE43kWoeAi7TqOmFIpMg0xrse6Peo39a17VZmznp6zr+AStX0zm0g==;EndpointSuffix=core.windows.net",
+    "WEBSITE_CONTENTSHARE": "salarymatcha053",
+    "WEBSITE_RUN_FROM_PACKAGE": "https://salarymatchbaee.blob.core.windows.net/function-releases/20230206220134-6ad4870887ae022cfbb806772a0639f3.zip?sv=2020-10-02&st=2023-02-06T21%3A56%3A35Z&se=2033-02-06T22%3A01%3A35Z&sr=b&sp=r&sig=WKagWmX%2BaVCIvsIO89UXSV9us8%2FnBAV5NqzsqH2WK1Y%3D",
+    "CosmosDbConnectionString": "AccountEndpoint=https://salarymatch.documents.azure.com:443/;AccountKey=54JSDpVJ9Q0ZtHxPJkCDCogbUqx20nPBcKOzRrD9i81lJglYOZqfKFIVsPdypRWY0wR4Mi9HIufZACDbGZFNIQ=="
+  }
+}
