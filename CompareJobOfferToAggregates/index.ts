@@ -19,12 +19,12 @@ const compareJobOfferToAggregates: AzureFunction = async (context: Context, req:
     }
 
     if (!offer) {
-        context.res = responseFactory("Job offer does not exist", 400);
+        context.res = responseFactory("Job offer does not exist.", 400);
         return;
     }
 
     if (offer.user_id !== user_id) {
-        context.res = responseFactory("User does not have access to one or both job offers.", 401);
+        context.res = responseFactory("User does not have access to job offer.", 401);
         return;
     }
 
