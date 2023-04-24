@@ -90,6 +90,7 @@ export interface JobOffer {
 
 export interface Company {
     id: string,
+    ticker: string,
     name: string,
     percent_male: number,
     percent_female: number,

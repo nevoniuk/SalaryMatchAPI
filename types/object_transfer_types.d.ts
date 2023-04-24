@@ -99,6 +99,7 @@ export interface BasicCompanyInfo {
 
 export interface CompanyDetails {
     id: string,
+    ticker: string,
     name: string,
     percent_male: number,
     percent_female: number,
