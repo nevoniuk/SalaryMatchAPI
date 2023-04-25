@@ -41,7 +41,9 @@ export interface CityDetails {
     state_abortion_laws: string,
     state_cannabis_legality: string,
     crime_rate_per_1000: number,
-    state_school_score: number
+    state_school_score: number,
+    restaurant_rating: number,
+    food_ranking: number,
 }
 
 export interface BasicCityInfo {

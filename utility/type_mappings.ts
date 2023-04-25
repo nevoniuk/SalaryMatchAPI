@@ -44,7 +44,9 @@ export const cityToCityDetails = (city: City): CityDetails => {
         state_abortion_laws: city.state_abortion_laws,
         state_cannabis_legality: city.state_cannabis_legality,
         crime_rate_per_1000: city.crime_rate_per_1000,
-        state_school_score: city.state_school_score
+        state_school_score: city.state_school_score,
+        restaurant_rating: city.restaurant_rating,
+        food_ranking: city.food_ranking
     }
 }
 
