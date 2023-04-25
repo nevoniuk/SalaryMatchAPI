@@ -43,7 +43,10 @@ export const FakeCityChicago: City = {
     state_abortion_laws: "Fully legal",
     state_cannabis_legality: "Medicinal use only",
     crime_rate_per_1000: 2345.90,
-    state_school_score: 10
+    state_school_score: 10,
+    restaurant_rating: 14.00,
+    food_ranking: 5,
+    
 }
 
 export const FakeCityNYC: City = {
@@ -89,7 +92,9 @@ export const FakeCityNYC: City = {
     state_abortion_laws: "Fully legal",
     state_cannabis_legality: "Medicinal use only",
     crime_rate_per_1000: 2345.90,
-    state_school_score: 10
+    state_school_score: 10,
+    restaurant_rating: 12.00,
+    food_ranking: 2,
 }
 
 export const ChicagoAndNYCCityList = [FakeCityChicago, FakeCityNYC];
