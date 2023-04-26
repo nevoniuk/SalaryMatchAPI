@@ -1,6 +1,6 @@
 import { AzureFunction, Context, HttpRequest } from "@azure/functions"
 import { validateToken } from "../utility/validateToken";
-import { v4 as uuidv4 } from "uuid";
+import { randomUUID } from "crypto";
 import { responseFactory } from "../utility/response_factory";
 import { userFavoritesContainer } from "../cosmosClient";
 
@@ -20,8 +20,8 @@ const createUserFavorite: AzureFunction = async (context: Context, req: HttpRequ
 
     if (context.req && context.req.body && context.req.body.user_id && context.req.body.city_id && context.req.body.company_id) {
         context.bindings.outputDocument = JSON.stringify({
-            id: uuidv4(),
-            user_id: context.req.body.password,
+            id: randomUUID(),
+            user_id: user_id,
             city_id: context.req.body.city_id ? context.req.body.city_id : "None",
             company_id: context.req.body.company_id ? context.req.body.company_id : "None"
         });
