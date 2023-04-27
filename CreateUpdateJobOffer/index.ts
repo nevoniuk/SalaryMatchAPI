@@ -19,8 +19,8 @@ const createUpdateJobOffer: AzureFunction = async (context: Context, req: HttpRe
         return;
     }
 
-    if (context.req && context.req.body && context.req.body.RSU && context.req.body.signing_bonus 
-        && context.req.body.relocation_bonus && context.req.body.title && context.req.body.salary 
+    if (context.req && context.req.body && context.req.body.RSU != undefined && context.req.body.signing_bonus != undefined 
+        && context.req.body.relocation_bonus != undefined && context.req.body.title && context.req.body.salary != undefined
         && context.req.body.company && context.req.body.city_id && context.req.body.state_id) {
 
             const companyQuery: SqlQuerySpec = {

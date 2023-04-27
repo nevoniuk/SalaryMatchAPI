@@ -1,0 +1,30 @@
+{
+  "bindings": [
+    {
+      "authLevel": "anonymous",
+      "type": "httpTrigger",
+      "direction": "in",
+      "name": "req",
+      "methods": [
+        "get"
+      ],
+      "route": "companies/{id}/stock"
+    },
+    {
+      "type": "http",
+      "direction": "out",
+      "name": "res"
+    },
+    {
+      "type": "cosmosDB",
+      "direction": "in",
+      "name": "company",
+      "databaseName": "SalaryMatchDB",
+      "collectionName": "Companies",
+      "connectionStringSetting": "CosmosDbConnectionString",
+      "PartitionKey": "{id}",
+      "Id": "{id}"
+    }
+  ],
+  "scriptFile": "../dist/getCompanyStockInfo/index.js"
+}
