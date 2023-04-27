@@ -3,8 +3,9 @@ import { validateToken } from "../utility/validateToken";
 import { randomUUID } from "crypto";
 import { responseFactory } from "../utility/response_factory";
 import { userFavoritesContainer } from "../cosmosClient";
+import { UserFavorites} from "../types/database_types"
 
-const createUserFavorite: AzureFunction = async (context: Context, req: HttpRequest, outputDocument: any): Promise<void> => {
+const createUserFavorite: AzureFunction = async (context: Context, req: HttpRequest, outputDocument: any | null): Promise<void> => {
     const user_id = await validateToken(req.headers);
 
     if (user_id == "No Token Found") {
@@ -16,9 +17,11 @@ const createUserFavorite: AzureFunction = async (context: Context, req: HttpRequ
         context.res = responseFactory("Token invalid.", 401);
         return;
     }
-
-
-    if (context.req && context.req.body && context.req.body.user_id && context.req.body.city_id && context.req.body.company_id) {
+    if (outputDocument != null) {
+        context.bindings.outputDocument = outputDocument;
+        context.res = responseFactory("Record added to Cosmos DB.");
+    }
+    else if (context.req && context.req.body && (context.req.body.city_id || context.req.body.company_id)) {
         context.bindings.outputDocument = JSON.stringify({
             id: randomUUID(),
             user_id: user_id,
@@ -27,7 +30,7 @@ const createUserFavorite: AzureFunction = async (context: Context, req: HttpRequ
         });
         context.res = responseFactory("Record added to Cosmos DB.");
     } else {
-        context.res = responseFactory("Need to include information for a user favorite", 400);
+        context.res = responseFactory("No Favorite Included", 400);
     }
 };
 
