@@ -8,7 +8,7 @@ import { fakeFavorite } from '../../mock_data/MockFavorites'
 import { v4 as uuidv4 } from "uuid";
 import { userFavoritesContainer } from "../../cosmosClient";
 import { loginAttemptsContainer } from "../../cosmosClient";
-
+import {UserFavorites} from "../../types/database_types"
 let loginToken1: {
     id: any,
     email: string,
@@ -38,6 +38,7 @@ describe('GetUserFavorite Integration tests', () => {
         }
         const response = await mockedRequestFactory();
         expect(response.statusCode).toEqual(401);
+        
         expect(response.body).toEqual("\"Token invalid.\"");
     }),
 
@@ -46,6 +47,19 @@ describe('GetUserFavorite Integration tests', () => {
         const response = await falsemockedRequestFactory();
         expect(response.statusCode).toEqual(401);
         expect(response.body).toEqual("\"Token not found.\"");
+    }),
+
+    it('Correct favorite returned', async () => {
+        loginToken2 = loginToken1;
+
+        const response = await mockedRequestFactory();
+        expect(response.statusCode).toEqual(200);
+        expect(loginToken1).toEqual(loginToken2);
+        let res = <UserFavorites[]>JSON.parse(response.body);
+        expect(res[0].id).toEqual(fakeFavorite.id);
+        expect(res[0].city_id).toEqual(fakeFavorite.city_id);
+        expect(res[0].company_id).toEqual(fakeFavorite.company_id);
+        expect(res[0].user_id).toEqual(fakeFavorite.user_id);
     })
 
 })
