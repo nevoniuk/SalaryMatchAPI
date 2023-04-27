@@ -128,3 +128,10 @@ export interface UserFeedback {
     email: string,
     message: string
 }
+
+export interface UserFavorites {
+    id: string,
+    user_id: string,
+    city_id: string,
+    company_id: string,
+}
