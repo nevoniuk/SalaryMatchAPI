@@ -8,7 +8,7 @@
       "methods": [
         "get"
       ],
-      "route": "companies/{id}/stock"
+      "route": "stock/{id}/"
     },
     {
       "type": "http",
