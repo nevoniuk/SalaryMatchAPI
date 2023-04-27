@@ -1,7 +1,6 @@
 import { AzureFunction, Context, HttpRequest } from "@azure/functions"
 import { Company } from "../types/database_types";
 import { responseFactory } from "../utility/response_factory";
-import axios from 'axios';
 
 const apiKey = 'APRZ7A0K1T09K2UJ';
 
@@ -22,11 +21,11 @@ const getCompanyStockInfo: AzureFunction = async (context: Context, req: HttpReq
     var stockDate = "";
 
     if(symbol != "Not Public"){
-        await axios.get(`https://www.alphavantage.co/query?function=TIME_SERIES_INTRADAY&symbol=${symbol}&interval=5min&apikey=${apiKey}`)
-        .then(response => {
-            const {data} = response;
-            stockDate = data['Meta Data']['3. Last Refreshed'];
-            stockPrice =  data['Time Series (5min)'][data['Meta Data']['3. Last Refreshed']]['4. close'];
+        await fetch(`https://www.alphavantage.co/query?function=TIME_SERIES_INTRADAY&symbol=${symbol}&interval=5min&apikey=${apiKey}`)
+        .then((res) => res.json())
+        .then((res) => {
+            stockDate = res['Meta Data']['3. Last Refreshed'];
+            stockPrice =  res['Time Series (5min)'][res['Meta Data']['3. Last Refreshed']]['4. close'];
         })
         .catch(error => {
             console.error(error);
