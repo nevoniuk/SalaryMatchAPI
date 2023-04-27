@@ -17,10 +17,7 @@ const createUserFavorite: AzureFunction = async (context: Context, req: HttpRequ
         context.res = responseFactory("Token invalid.", 401);
         return;
     }
-    if (outputDocument != null) {
-        context.bindings.outputDocument = outputDocument;
-        context.res = responseFactory("Record added to Cosmos DB.");
-    }
+  
     else if (context.req && context.req.body && (context.req.body.city_id || context.req.body.company_id)) {
         context.bindings.outputDocument = JSON.stringify({
             id: randomUUID(),
