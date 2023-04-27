@@ -51,11 +51,11 @@ describe('GetUserFavorite Integration tests', () => {
 
     it('Correct favorite returned', async () => {
         loginToken2 = loginToken1;
-
         const response = await mockedRequestFactory();
         expect(response.statusCode).toEqual(200);
         expect(loginToken1).toEqual(loginToken2);
         let res = <UserFavorites[]>JSON.parse(response.body);
+        expect(res.length).toEqual(1);
         expect(res[0].id).toEqual(fakeFavorite.id);
         expect(res[0].city_id).toEqual(fakeFavorite.city_id);
         expect(res[0].company_id).toEqual(fakeFavorite.company_id);
