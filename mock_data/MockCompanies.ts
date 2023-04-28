@@ -11,3 +11,15 @@ export const FakeCompanyGoogle: Company = {
     percent_latino: 15,
     percent_black: 15
 }
+
+export const FakeCompanyYahoo: Company = {
+    id: "123",
+    name: "Yahoo!",
+    ticker: "Not Public",
+    percent_male: 51,
+    percent_female: 49,
+    percent_caucasian: 35,
+    percent_asian: 35,
+    percent_latino: 15,
+    percent_black: 15
+}
