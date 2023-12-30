@@ -6,4 +6,10 @@ export const fakeFavorite: UserFavorites = {
     city_id: "134",
     company_id: "135",
 }
+export const differentFakeFavorite: UserFavorites = {
+    id: "1234",
+    user_id: "integrationusertwo",
+    city_id: "134",
+    company_id: "135",
+}
 
